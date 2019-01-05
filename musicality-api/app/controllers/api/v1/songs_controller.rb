@@ -7,7 +7,7 @@ class Api::V1::SongsController < ApplicationController
     end
 
     def show
-        
+        render :json => @song, status: 200
     end
 
     def update
