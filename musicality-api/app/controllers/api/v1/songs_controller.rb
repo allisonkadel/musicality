@@ -22,7 +22,11 @@ class Api::V1::SongsController < ApplicationController
     end
 
     def update
-
+        if @song.update(song_params)
+            render :json => @song, :status => 200
+        else
+            render :json => { :message => song.errors }, :status => 400
+        end
     end
 
     def delete
