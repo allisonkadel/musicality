@@ -42,6 +42,10 @@ class Api::V1::SongsController < ApplicationController
 
     private
 
+    def song_params
+        params.require(:song).permit(:name,:artist,:chords)
+    end
+
     def set_song
         @song = Song.find(params[:id])
     end
