@@ -1,5 +1,7 @@
 class Api::V1::SongsController < ApplicationController
 
+    before_action :set_song, :only => [:show, :update, :destroy]
+
     def index
         @songs = Song.all
 
@@ -29,7 +31,7 @@ class Api::V1::SongsController < ApplicationController
 
     private
 
-    def find_song
+    def set_song
         @song = Song.find(params[:id])
     end
 
