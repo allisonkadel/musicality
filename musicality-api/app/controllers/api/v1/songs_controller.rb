@@ -29,8 +29,15 @@ class Api::V1::SongsController < ApplicationController
         end
     end
 
-    def delete
-
+    def destroy
+        if @song.destroy
+            render :status => 204
+        else
+            render :json => { 
+                :songId => @song.id,
+                :message => 'Unable to remove song' 
+                }, :status => 400
+        end
     end
 
     private
