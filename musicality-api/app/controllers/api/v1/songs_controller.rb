@@ -7,7 +7,7 @@ class Api::V1::SongsController < ApplicationController
     end
 
     def show
-
+        
     end
 
     def update
@@ -16,6 +16,12 @@ class Api::V1::SongsController < ApplicationController
 
     def delete
 
+    end
+
+    private
+
+    def find_song
+        @song = Song.find(params[:id])
     end
 
 end
