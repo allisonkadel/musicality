@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import './App.css'
+import Songs from './Songs'
 
-const Songs = () => 
-    <div>
-        <h3>Songs Component</h3>
-    </div>
+const songs = [
+    {
+        name: 'doodledandy',
+        artist: 'sher',
+        chords: 'ABCF'
+    },
+    {
+        name: 'fooom',
+        artist: 'the roof cats',
+        chords: 'GEmC'
+    }
+]
 
 
 class App extends Component {
@@ -12,7 +21,7 @@ class App extends Component {
         return (
             <div className='App'>
                 App Container
-                <Songs/>
+                <Songs songs={songs}/>
             </div>
         )
     }
