@@ -23,4 +23,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps,{ fetchSongs })(Songs);
+export default connect(mapStateToProps, { fetchSongs })(Songs);
