@@ -27,14 +27,14 @@ import Songs from './Songs'
 
 class App extends Component {
 
-    state = {
-        songs: []
-    }
+    // state = {
+    //     songs: []
+    // }
     
     componentDidMount(){
         fetch('http://192.168.1.31:3000/api/v1/songs')
         .then(response => response.json())
-        .then(songs => this.setState({songs: songs}))
+        // .then(songs => this.setState({songs: songs}))
     }
 
     render() {
@@ -42,7 +42,7 @@ class App extends Component {
         return (
             <div className='App'>
                 App Container
-                <Songs songs={this.state.songs}/>
+                <Songs/>
             </div>
         )
     }
