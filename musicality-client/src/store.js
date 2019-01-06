@@ -1,8 +1,8 @@
-import React from 'react';
 import {
     createStore,
     applyMiddleware, // to make asynchronous calls to backend
-    combineReducers
+    combineReducers,
+    compose
 } from 'redux';
 import thunk from 'redux-thunk';
 
@@ -21,9 +21,11 @@ const rootReducer = combineReducers({
     songs: songsReducer
 });
 const middleware = [thunk]
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export default createStore(
+const store = createStore(
     rootReducer,
-    applyMiddleware(...middleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()    
-);
+    composeEnhancer(applyMiddleware(...middleware)
+))
+
+export default store;
