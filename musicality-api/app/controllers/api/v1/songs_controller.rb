@@ -9,7 +9,7 @@ class Api::V1::SongsController < ApplicationController
     end
 
     def create
-        song = song.new(song_params)
+        song = Song.new(song_params)
         if song.save
             render :json => song, :status => 200
         else
