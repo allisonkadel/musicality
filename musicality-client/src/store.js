@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
     createStore,
     applyMiddleware, // to make asynchronous calls to backend
