@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { fetchSongs } from '../actions/songs'
 import './App.css'
-import Songs from './Songs'
 
 // const songs = [
 //     {
@@ -31,11 +31,7 @@ class App extends Component {
     //     songs: []
     // }
     
-    componentDidMount(){
-        fetch('http://192.168.1.31:3000/api/v1/songs')
-        .then(response => response.json())
-        // .then(songs => this.setState({songs: songs}))
-    }
+
 
     render() {
         // console.log(this.state)

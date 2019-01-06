@@ -5,17 +5,8 @@ import {
     compose
 } from 'redux';
 import thunk from 'redux-thunk';
+import songsReducer from './reducers/songsReducer'
 
-const songsReducer = (state = [], action) => {
-    switch(action.type) {
-
-        case 'GET_SONGS_SUCCESS':
-            return action.songs
-
-        default:
-            return state;
-    }
-}
 
 const rootReducer = combineReducers({
     songs: songsReducer
