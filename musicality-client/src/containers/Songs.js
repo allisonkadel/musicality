@@ -5,7 +5,7 @@ const Songs = (props) => (
     <div className='SongsContainer'>
         <h1 className='App-header'>Songs In Your Library</h1>
         {props.songs.map(song => 
-            <div className='SongCard'>
+            <div key={song.id} className='SongCard'>
                 <h3>{song.name}</h3>
                 <h4>{song.artist}</h4>
                 <h4>{song.chords}</h4>
