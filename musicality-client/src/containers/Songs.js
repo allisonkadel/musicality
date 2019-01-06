@@ -2,7 +2,7 @@ import React from 'react'
 import './Songs.css'
 
 const Songs = (props) => (
-    <div>
+    <div className='SongsContainer'>
         <h1>Songs In Your Library</h1>
         {props.songs.map(song => 
             <div className='SongCard'>
