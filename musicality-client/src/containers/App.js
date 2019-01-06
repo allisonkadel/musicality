@@ -12,6 +12,16 @@ const songs = [
         name: 'fooom',
         artist: 'the roof cats',
         chords: 'GEmC'
+    },
+    {
+        name: 'fooled ya 3 times',
+        artist: 'the goofster',
+        chords: 'ABCD'
+    },
+    {
+        name: 'love you like chocolate',
+        artist: 'sister forest',
+        chords: 'GEmC'
     }
 ]
 
