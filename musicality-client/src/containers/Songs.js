@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import SongCard from '../components/SongCard'
 import SongForm from './SongForm'
 import './Songs.css'
@@ -15,4 +16,10 @@ class Songs extends Component {
         )}
 }
 
-export default Songs;
+const mapStateToProps = (state) => {
+    return ({
+        songs: state.songs
+    })
+}
+
+export default connect(mapStateToProps)(Songs);
