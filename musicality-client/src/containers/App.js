@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchSongs } from '../actions/songs'
+import Songs from './Songs';
 import './App.css'
 
 // const songs = [
