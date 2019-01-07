@@ -1,4 +1,4 @@
-
+import { resetSongForm } from './songForm';
 
 // ACTION CREATORS - the functions that go to the reducer
 
@@ -37,7 +37,10 @@ export const createSong = song => {
             body: JSON.stringify({song: song})
         })
         .then(response => response.json())
-        .then(song => dispatch(addSong(song)))
+        .then(song => {
+            dispatch(addSong(song))
+            dispatch(resetSongForm())
+        })
         .catch(error => console.log(error))
     }
 }
