@@ -8,7 +8,7 @@ import './Songs.css'
 class Songs extends Component {
 
     componentDidMount() {
-        this.props.getSongs();
+        this.props.fetchSongs();
     }
 
     render() {
