@@ -6,3 +6,9 @@ export const updateSongFormData = songFormData => {
         songFormData
     }
 }
+
+export const resetSongForm = () => {
+    return {
+        type: 'RESET_SONG_FORM'
+    }
+}
