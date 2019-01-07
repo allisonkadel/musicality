@@ -13,12 +13,17 @@ class SongForm extends Component {
         this.props.updateSongFormData(currentSongFormData)
     }
 
+    handleOnSubmit = event => {
+        event.preventDefault();
+        this.props.createSong(this.props.songFormData)
+    } 
+
     render() {
         const { name, artist, chords } = this.props.songFormData;
         return (
             <div>
                 Add a Song to Your Library
-                <form>
+                <form onSubmit={this.handleOnSubmit}>
                     <div>
                         <label>Title</label>
                         <input
