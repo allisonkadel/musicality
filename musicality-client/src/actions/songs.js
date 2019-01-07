@@ -9,6 +9,13 @@ const setSongs = songs => {
     }
 }
 
+const addSong = song => {
+    return {
+        type: 'CREATE_SONG_SUCCESS',
+        song
+    }
+}
+
 // ASYNCHRONOUS ACTIONS - make calls to the backend
 
 export const fetchSongs = () => {
