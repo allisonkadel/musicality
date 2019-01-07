@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import updateSongFormData from '../actions/songForm';
 
 class SongForm extends Component {
+
+
+    handleOnChange = event => {
+        const { name, value } = event.target;
+        const currentSongFormData = Object.assign({}, this.props.songFormData, {
+            [name]: value
+        })
+        this.props.updateSongFormData(currentSongFormData)
+    }
+
     render() {
         const { title, artist, chords } = this.props.songFormData;
         return (
@@ -12,14 +23,16 @@ class SongForm extends Component {
                         <label>Title</label>
                         <input
                             type='text'
+                            onChange={this.handleOnChange}
                             name='title'
-                            value={title}
+                            value={this.state.title}
                         />
                     </div>
                     <div>
                         <label>Artist</label>
                         <input
                             type='text'
+                            onChange={this.handleOnChange}
                             name='artist'
                             value={artist}
                         />
@@ -28,6 +41,7 @@ class SongForm extends Component {
                         <label>Chords</label>
                         <input
                             type='text'
+                            onChange={this.handleOnChange}
                             name='chords'
                             value={chords}
                         />
