@@ -65,4 +65,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateSongFormData })(SongForm);
+export default connect(mapStateToProps, {
+    createSong,
+    updateSongFormData
+ })(SongForm);

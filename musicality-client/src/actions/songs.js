@@ -29,6 +29,9 @@ export const createSong = song => {
             },
             data: JSON.stringify(song)
         })
-        .then(response => console.log(response))
+        .then(response => response.json())
+        .then(song => {
+            debugger})
+        .catch(error => console.log(error))
     }
 }
