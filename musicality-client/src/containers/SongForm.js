@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateSongFormData } from '../actions/songForm';
 import { createSong } from '../actions/songs';
+import './SongForm.css'
 
 class SongForm extends Component {
 
@@ -22,8 +23,8 @@ class SongForm extends Component {
     render() {
         const { name, artist, chords } = this.props.songFormData;
         return (
-            <div>
-                Add a Song to Your Library
+            <div className='Songs-form'>
+                <h4 className='Form-header'>Add a Song to Your Library</h4>
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
                         <label>Title</label>

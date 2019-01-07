@@ -6,7 +6,7 @@ export default (state = [], action) => {
 
         case 'CREATE_SONG':
             return state.concat(action.song) // avoid array mutation
-
+            debugger
         default:
             return state;
     }
