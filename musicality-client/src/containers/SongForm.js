@@ -25,7 +25,7 @@ class SongForm extends Component {
                             type='text'
                             onChange={this.handleOnChange}
                             name='title'
-                            value={this.state.title}
+                            value={title}
                         />
                     </div>
                     <div>
@@ -58,4 +58,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(SongForm);
+export default connect(mapStateToProps, { updateSongFormData })(SongForm);
