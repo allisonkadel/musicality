@@ -46,6 +46,7 @@ class SongForm extends Component {
                             value={chords}
                         />
                     </div>
+                    <button type='submit'>Add Song</button>
                 </form>
             </div>
         )
