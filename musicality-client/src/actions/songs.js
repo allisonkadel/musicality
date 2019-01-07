@@ -9,7 +9,7 @@ const setSongs = songs => {
     }
 }
 
-// ASYNCHRONOUS ACTIONS
+// ASYNCHRONOUS ACTIONS - make calls to the backend
 
 export const fetchSongs = () => {
     return dispatch => {
@@ -20,3 +20,15 @@ export const fetchSongs = () => {
     }
 }
 
+export const createSong = song => {
+    return dispatch => {
+        return fetch('http://192.168.1.31:3000/api/v1/songs', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(song)
+        })
+        .then(response => console.log(response))
+    }
+}
