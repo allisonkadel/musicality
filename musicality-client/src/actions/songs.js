@@ -21,13 +21,14 @@ export const fetchSongs = () => {
 }
 
 export const createSong = song => {
+    debugger
     return dispatch => {
         return fetch('http://192.168.1.31:3000/api/v1/songs', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            data: JSON.stringify(song)
+            body: JSON.stringify({song: song})
         })
         .then(response => response.json())
         .then(song => {
