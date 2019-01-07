@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import updateSongFormData from '../actions/songForm';
+import { updateSongFormData } from '../actions/songForm';
 
 class SongForm extends Component {
 
@@ -14,7 +14,7 @@ class SongForm extends Component {
     }
 
     render() {
-        const { title, artist, chords } = this.props.songFormData;
+        const { name, artist, chords } = this.props.songFormData;
         return (
             <div>
                 Add a Song to Your Library
@@ -24,8 +24,8 @@ class SongForm extends Component {
                         <input
                             type='text'
                             onChange={this.handleOnChange}
-                            name='title'
-                            value={title}
+                            name='name'
+                            value={name}
                         />
                     </div>
                     <div>

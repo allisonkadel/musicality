@@ -1,6 +1,6 @@
 // ACTION CREATORS
 
-const updateSongFormData = songFormData => {
+export const updateSongFormData = songFormData => {
     return {
         type: 'UPDATED_DATA',
         songFormData
