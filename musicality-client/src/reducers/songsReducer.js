@@ -4,6 +4,9 @@ export default (state = [], action) => {
         case 'GET_SONGS_SUCCESS':
             return action.songs
 
+        case 'CREATE_SONG':
+            return state.concat(action.song) // avoid array mutation
+
         default:
             return state;
     }
