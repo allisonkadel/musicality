@@ -7,6 +7,10 @@ import './Songs.css'
 
 class Songs extends Component {
 
+    componentDidMount() {
+        this.props.getSongs();
+    }
+
     render() {
         return(
             <div className='SongsContainer'>
