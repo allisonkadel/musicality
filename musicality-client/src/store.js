@@ -5,11 +5,13 @@ import {
     compose
 } from 'redux';
 import thunk from 'redux-thunk';
-import songsReducer from './reducers/songsReducer'
+import songsReducer from './reducers/songsReducer';
+import songFormData from './reducers/songFormData';
 
 
 const rootReducer = combineReducers({
-    songs: songsReducer
+    songs: songsReducer,
+    songFormData
 });
 const middleware = [thunk]
 
