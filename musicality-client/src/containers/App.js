@@ -8,8 +8,8 @@ class App extends Component {
     render() {
         return (
             <div className='App'>
-                <SongForm/>
-                <Songs/>
+                {/* <SongForm/>
+                <Songs/> */}
             </div>
         )
     }

@@ -12,10 +12,10 @@ class SongsContainer extends Component {
   render() {
     return (
       <div>
-        <SongForm addSong={this.props.addSong}/>
+        <SongForm addSong={this.props.createSong}/>
         <Songs
           songs={this.props.songs}
-          deleteSong={this.props.deleteSong}
+        //   deleteSong={this.props.destroySong}
         />
       </div>
     );
@@ -25,7 +25,7 @@ class SongsContainer extends Component {
 const mapStateToProps = state => ({ songs: state.songs })
 
 // const mapDispatchToProps = dispatch => ({
-  
+
 //   addSong: text => dispatch({type: 'ADD_SONG', text}),
 //   deleteSong: id => dispatch({type: 'DELETE_SONG', id})
 // })
