@@ -18,7 +18,8 @@ const addSong = song => {
 
 const deleteSong = id => {
     return {
-        type: 'DELETE_SONG'
+        type: 'DELETE_SONG',
+        id
     }
 }
 
@@ -58,6 +59,7 @@ export const destroySong = id => {
         }).then(resp => {
             dispatch(deleteSong(id))
         })
+        .catch(error => console.log(error))
     }
 }
 
