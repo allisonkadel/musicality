@@ -23,9 +23,10 @@ import LyricsContainer from '../containers/LyricsContainer';
                     src='https://www.guitar-chord.org/images/c_chord_chart.png'
                     alt='chord chart'
                 />
-                <LyricsContainer toggleLyrics={props.toggleLyrics} sondId={props.song.id}/>
-                <button onClick={() => { props.handleToggle() }}>Edit</button>
                 <button onClick={() => { props.destroySong(props.song.id) }}>X</button>
+
+                <LyricsContainer song={props.song}/>
+                {/* <button onClick={() => { props.handleToggle() }}>Edit</button> */}
             </div>
         )
     }
