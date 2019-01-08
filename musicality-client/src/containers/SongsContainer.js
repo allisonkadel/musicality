@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import SongForm from '../components/songs/SongForm'
-// import Songs from '../components/songs/Songs'
+import Songs from './Songs'
 import { fetchSongs, createSong } from '../actions/songs';
 import { connect } from 'react-redux'
 
@@ -16,10 +16,10 @@ class SongsContainer extends Component {
           SongForm Component
         {/* <SongForm addSong={this.props.createSong}/> */}
         Songs Component
-        {/* <Songs
+        <Songs
           songs={this.props.songs}
-        //   deleteSong={this.props.destroySong}
-        /> */}
+          destroySong={this.props.destroySong}
+        />
       </div>
     );
   }
@@ -33,4 +33,4 @@ const mapStateToProps = state => ({ songs: state.songs })
 //   deleteSong: id => dispatch({type: 'DELETE_SONG', id})
 // })
 
-export default connect(mapStateToProps, { fetchSongs, createSong })(SongsContainer)
+export default connect(mapStateToProps, { fetchSongs, createSong, destroySong })(SongsContainer)
