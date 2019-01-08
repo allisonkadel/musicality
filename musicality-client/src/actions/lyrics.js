@@ -37,46 +37,46 @@ const delete_lyric = id => {
 
 // ASYNCHRONOUS ACTIONS - make calls to the backend
 
-export const fetchs = () => {
+export const fetchs = (songId) => {
     return dispatch => {
         dispatch(loads())
-        return fetch('http://192.168.1.31:3000/api/v1/lyrics')
+        return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`)
         .then(response => response.json())
         .then(lyrics => dispatch(sets(lyrics)))
         .catch(error => console.log(error))
     }
 }
 
-export const create = lyric => {
-    return dispatch => {
-        dispatch(postRequest())
-        return fetch('http://192.168.1.31:3000/api/v1/lyrics', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({lyric: lyric})
-        })
-        .then(response => response.json())
-        .then(lyric => {
-            dispatch(add(lyric))
-            dispatch(resetForm())
-        })
-        .catch(error => console.log(error))
-    }
-}
+// export const create = (songId,lyric) => {
+//     return dispatch => {
+//         dispatch(postRequest())
+//         return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`,{
+//             method: 'POST',
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({lyric: lyric})
+//         })
+//         .then(response => response.json())
+//         .then(lyric => {
+//             dispatch(add(lyric))
+//             dispatch(resetForm())
+//         })
+//         .catch(error => console.log(error))
+//     }
+// }
 
-export const destroy = id => {
-    return dispatch => {
-        console.log(id)
-        return fetch(`http://192.168.1.31:3000/api/v1/lyrics/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(resp => {
-            dispatch(delete(id))
-        })
-        .catch(error => console.log(error))
-    }
-}
+// export const destroy = id => {
+//     return dispatch => {
+//         console.log(id)
+//         return fetch(`http://192.168.1.31:3000/api/v1/lyrics/${id}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             }
+//         }).then(resp => {
+//             dispatch(delete(id))
+//         })
+//         .catch(error => console.log(error))
+//     }
+// }
