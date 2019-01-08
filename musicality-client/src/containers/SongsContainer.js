@@ -24,9 +24,10 @@ class SongsContainer extends Component {
 
 const mapStateToProps = state => ({ songs: state.songs })
 
-const mapDispatchToProps = dispatch => ({
-  addSong: text => dispatch({type: 'ADD_SONG', text}),
-  deleteSong: id => dispatch({type: 'DELETE_SONG', id})
-})
+// const mapDispatchToProps = dispatch => ({
+  
+//   addSong: text => dispatch({type: 'ADD_SONG', text}),
+//   deleteSong: id => dispatch({type: 'DELETE_SONG', id})
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SongsContainer)
+export default connect(mapStateToProps, { fetchSongs, createSong })(SongsContainer)

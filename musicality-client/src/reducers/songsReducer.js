@@ -8,6 +8,10 @@ export default (state = [], action) => {
             return state.concat(action.song) // avoid array mutation
         case 'DELETE_SONG':
             return state.filter(song => action.id !== song.id)
+        
+        case 'MAKE_SONGS_REQUEST':
+            
+
         default:
             return state;
     }
