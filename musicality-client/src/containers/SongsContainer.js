@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import SongForm from '../components/songs/SongForm'
+import SongForm from './SongForm'
 import Songs from './Songs'
-import { fetchSongs, createSong } from '../actions/songs';
+import { fetchSongs, createSong, destroySong } from '../actions/songs';
 import { connect } from 'react-redux'
 
 class SongsContainer extends Component {
@@ -14,7 +14,7 @@ class SongsContainer extends Component {
     return (
       <div>
           SongForm Component
-        {/* <SongForm addSong={this.props.createSong}/> */}
+        <SongForm createSong={this.props.createSong}/>
         Songs Component
         <Songs
           songs={this.props.songs}
@@ -25,7 +25,9 @@ class SongsContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({ songs: state.songs })
+const mapStateToProps = state => ({ 
+    songs: state.songs,
+    songFormData: state.songFormData })
 
 // const mapDispatchToProps = dispatch => ({
 

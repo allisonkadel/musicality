@@ -15,6 +15,12 @@ const setSongs = songs => {
     }
 }
 
+const postRequest = () => {
+    return {
+        type: 'MAKE_POST_REQUEST'
+    }
+}
+
 const addSong = song => {
     return {
         type: 'CREATE_SONG_SUCCESS',
@@ -43,6 +49,7 @@ export const fetchSongs = () => {
 
 export const createSong = song => {
     return dispatch => {
+        dispatch(postRequest())
         return fetch('http://192.168.1.31:3000/api/v1/songs', {
             method: 'POST',
             headers: {
@@ -73,12 +80,3 @@ export const destroySong = id => {
         .catch(error => console.log(error))
     }
 }
-
-export const fetchCats = () => {
-    return (dispatch) => {
-      dispatch({ type: 'MAKE_SONGS_REQUEST' });
-      return fetch('http://www.catapi.com')
-        .then(response => response.json())
-        .then(cats => dispatch({ type: 'ADD_CATS', cats }));
-    };
-  }
