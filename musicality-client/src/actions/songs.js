@@ -45,3 +45,11 @@ export const createSong = song => {
     }
 }
 
+export const destroySong = id => {
+    return dispatch => {
+        return fetch(`http://192.168.1.31:3000/api/v1/songs/${id}`, {
+            method: 'DELETE'
+        }).then(console.log(response))
+    }
+}
+

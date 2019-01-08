@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import SongCard from '../components/SongCard'
-import { fetchSongs } from '../actions/songs'
+import { fetchSongs, destroySong } from '../actions/songs'
 import './Songs.css'
 
 class Songs extends Component {
@@ -25,4 +25,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps, { fetchSongs })(Songs);
+export default connect(mapStateToProps, { fetchSongs, destroySong })(Songs);

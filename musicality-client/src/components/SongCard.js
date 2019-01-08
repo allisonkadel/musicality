@@ -11,6 +11,7 @@ class SongCard extends Component {
     // }
 
     render() {
+        debugger
         return(
             <div key={this.props.song.id} className='SongCard'>
                 <h3>{this.props.song.name}</h3>
