@@ -54,12 +54,15 @@ export const createSong = song => {
 
 export const destroySong = id => {
     return dispatch => {
+        console.log(id)
         return fetch(`http://192.168.1.31:3000/api/v1/songs/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }).then(resp => {
             dispatch(deleteSong(id))
         })
         .catch(error => console.log(error))
     }
 }
-
