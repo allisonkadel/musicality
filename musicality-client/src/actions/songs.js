@@ -16,6 +16,12 @@ const addSong = song => {
     }
 }
 
+const deleteSong = id => {
+    return {
+        type: 'DELETE_SONG'
+    }
+}
+
 // ASYNCHRONOUS ACTIONS - make calls to the backend
 
 export const fetchSongs = () => {
@@ -49,7 +55,9 @@ export const destroySong = id => {
     return dispatch => {
         return fetch(`http://192.168.1.31:3000/api/v1/songs/${id}`, {
             method: 'DELETE'
-        }).then(console.log(response))
+        }).then(resp => {
+            dispatch(deleteSong(id))
+        })
     }
 }
 
