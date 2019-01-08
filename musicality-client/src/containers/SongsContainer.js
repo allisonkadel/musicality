@@ -4,6 +4,11 @@ import Songs from '../components/songs/Songs'
 import { connect } from 'react-redux'
 
 class SongsContainer extends Component {
+
+    componentDidMount() {
+        this.props.fetchSongs();
+    }
+
   render() {
     return (
       <div>

@@ -2,6 +2,12 @@ import { resetSongForm } from './songForm';
 
 // ACTION CREATORS - the functions that go to the reducer
 
+const loadSongs = () => {
+    return {
+        type: 'MAKE_SONGS_REQUEST'
+    }
+}
+
 const setSongs = songs => {
     return {
         type: 'GET_SONGS_SUCCESS',
@@ -27,6 +33,7 @@ const deleteSong = id => {
 
 export const fetchSongs = () => {
     return dispatch => {
+        dispatch(loadSongs())
         return fetch('http://192.168.1.31:3000/api/v1/songs')
         .then(response => response.json())
         .then(songs => dispatch(setSongs(songs)))
@@ -66,3 +73,12 @@ export const destroySong = id => {
         .catch(error => console.log(error))
     }
 }
+
+export const fetchCats = () => {
+    return (dispatch) => {
+      dispatch({ type: 'MAKE_SONGS_REQUEST' });
+      return fetch('http://www.catapi.com')
+        .then(response => response.json())
+        .then(cats => dispatch({ type: 'ADD_CATS', cats }));
+    };
+  }
