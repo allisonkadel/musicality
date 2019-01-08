@@ -37,12 +37,12 @@ const delete_lyric = id => {
 
 // ASYNCHRONOUS ACTIONS - make calls to the backend
 
-export const fetchs = (songId) => {
+export const fetchLyrics = (songId) => {
     return dispatch => {
-        dispatch(loads())
+        dispatch(loadLyrics())
         return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`)
         .then(response => response.json())
-        .then(lyrics => dispatch(sets(lyrics)))
+        .then(lyrics => dispatch(setLyrics(lyrics)))
         .catch(error => console.log(error))
     }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LyricForm from './LyricForm'
-import Lyrics from '..component/lyrics/Lyrics';
-import { fetchLyrics, createLyric, destroyLyric } from '../actions/lyrics';
+import Lyrics from '../components/lyrics/Lyrics';
+import { fetchLyrics } from '../actions/lyrics';
 import { connect } from 'react-redux'
 
 class LyricsContainer extends Component {
@@ -38,4 +38,4 @@ const mapStateToProps = state => ({
 //   deleteSong: id => dispatch({type: 'DELETE_SONG', id})
 // })
 
-export default connect(mapStateToProps, { fetchLyrics, createLyric, destroyLyric })(LyricsContainer)
+export default connect(mapStateToProps, { fetchLyrics })(LyricsContainer)
