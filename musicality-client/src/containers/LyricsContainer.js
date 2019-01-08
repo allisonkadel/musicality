@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LyricForm from './LyricForm'
-import Lyrics from './Lyrics'
+import Lyrics from '..component/lyrics/Lyrics';
 import { fetchLyrics, createLyric, destroyLyric } from '../actions/lyrics';
 import { connect } from 'react-redux'
 
@@ -13,12 +13,15 @@ class LyricsContainer extends Component {
   render() {
     return (
       <div>
-          SongForm Component
-        <SongForm createSong={this.props.createSong}/>
-        Songs Component
-        <Songs
-          songs={this.props.songs}
-          destroySong={this.props.destroySong}
+          LyricForm Component
+        <LyricForm 
+          createLyric={this.props.createLyric}
+          songId={this.props.song.id}/>
+        Lyrics Component
+        <Lyrics
+          lyrics={this.props.lyrics}
+          songId={this.props.song.id}
+          destroySong={this.props.destroyLyric}
         />
       </div>
     );
