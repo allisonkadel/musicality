@@ -6,9 +6,9 @@ import './Songs.css'
 
 class Songs extends Component {
 
-    componentDidMount() {
-        this.props.fetchSongs();
-    }
+    // componentDidMount() {
+    //     this.props.fetchSongs();
+    // }
 
     render() {
         return(
@@ -19,10 +19,11 @@ class Songs extends Component {
         )}
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        songs: state.songs
-    })
-}
+// const mapStateToProps = (state) => {
+//     return ({
+//         songs: state.songs
+//     })
+// }
 
-export default connect(mapStateToProps, { fetchSongs, destroySong })(Songs);
+// export default connect(mapStateToProps, { fetchSongs, destroySong })(Songs);
+export default Songs;

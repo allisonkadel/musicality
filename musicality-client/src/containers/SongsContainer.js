@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import SongForm from '../components/songs/SongForm'
-import Songs from '../components/songs/Songs'
+// import SongForm from '../components/songs/SongForm'
+// import Songs from '../components/songs/Songs'
+import { fetchSongs, createSong } from '../actions/songs';
 import { connect } from 'react-redux'
 
 class SongsContainer extends Component {
@@ -12,11 +13,13 @@ class SongsContainer extends Component {
   render() {
     return (
       <div>
-        <SongForm addSong={this.props.createSong}/>
-        <Songs
+          SongForm Component
+        {/* <SongForm addSong={this.props.createSong}/> */}
+        Songs Component
+        {/* <Songs
           songs={this.props.songs}
         //   deleteSong={this.props.destroySong}
-        />
+        /> */}
       </div>
     );
   }

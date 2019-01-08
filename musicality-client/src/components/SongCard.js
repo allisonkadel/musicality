@@ -4,7 +4,6 @@ import LyricContainer from '../containers/LyricContainer';
 // import { connect } from 'react-redux';
 
     const SongCard = (props) => {
-        debugger
         return(
             <div key={props.song.id} className='SongCard'>
                 <h3>{props.song.name}</h3>
