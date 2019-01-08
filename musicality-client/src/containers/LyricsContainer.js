@@ -29,8 +29,8 @@ class LyricsContainer extends Component {
 }
 
 const mapStateToProps = state => ({ 
-    songs: state.songs,
-    songFormData: state.songFormData })
+    lyrics: state.lyrics,
+    lyricFormData: state.lyricFormData })
 
 // const mapDispatchToProps = dispatch => ({
 
@@ -38,4 +38,4 @@ const mapStateToProps = state => ({
 //   deleteSong: id => dispatch({type: 'DELETE_SONG', id})
 // })
 
-export default connect(mapStateToProps, { fetchSongs, createSong, destroySong })(SongsContainer)
+export default connect(mapStateToProps, { fetchLyrics, createLyric, destroyLyric })(LyricsContainer)
