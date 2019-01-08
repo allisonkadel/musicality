@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import SongCard from '../components/SongCard'
 // import { fetchSongs, destroySong } from '../actions/songs'
 import './Songs.css'

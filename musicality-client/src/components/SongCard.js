@@ -14,8 +14,7 @@ import LyricContainer from '../containers/LyricContainer';
                     alt='chord chart'
                 />
                 {/* <LyricContainer sondId={song.id}/> */}
-                {/* <button onClick={()=>this.props.dispatch({type:'DELETE_SONG',id:this.props.song.id})}>X</button> */}
-                {/* <button onClick={props.destroySong(props.song.id)}>X</button> */}
+                <button onClick={() => { props.destroySong(props.song.id) }}>X</button>
             </div>
         )
     }
