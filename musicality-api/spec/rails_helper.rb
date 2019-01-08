@@ -28,6 +28,10 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 
+  # Factory bot config 
+  
+  config.include FactoryBot::Syntax::Methods
+
   # Database cleaner setup
 
   config.before(:suite) do

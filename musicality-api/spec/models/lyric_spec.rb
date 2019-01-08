@@ -8,5 +8,9 @@ RSpec.describe Lyric, :type => :model do
         it { should validate_inclusion_of(:chord).in_array(%w[A B C D E F G Am Bm Cm Dm Em Fm Gm]) }
     end
 
+    context 'relationships' do
+        it { should belong_to(:song) }
+    end
+
 
 end

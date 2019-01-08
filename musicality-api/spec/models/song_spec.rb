@@ -9,4 +9,8 @@ RSpec.describe Song, :type => :model do
         # add validation test for chords being among ABCDEFG
     end
 
+    context 'relationships' do
+        it { should have_many(:lyrics).dependent(:destroy) }
+    end
+
 end
