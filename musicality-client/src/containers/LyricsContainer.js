@@ -14,15 +14,15 @@ class LyricsContainer extends Component {
     return (
       <div>
           LyricForm Component
-        <LyricForm 
+        {/* <LyricForm 
           createLyric={this.props.createLyric}
-          songId={this.props.song.id}/>
+          songId={this.props.song.id}/> */}
         Lyrics Component
-        <Lyrics
+        {/* <Lyrics
           lyrics={this.props.lyrics}
           songId={this.props.song.id}
           destroySong={this.props.destroyLyric}
-        />
+        /> */}
       </div>
     );
   }
