@@ -6,6 +6,7 @@ RSpec.describe Song, :type => :model do
         it { should validate_presence_of(:name) }
         it { should validate_presence_of(:artist) }
         it { should validate_presence_of(:chords) }
+        # add validation test for chords being among ABCDEFG
     end
 
 end
