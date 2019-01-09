@@ -5,6 +5,7 @@ RSpec.describe 'Songs API', :type => :request do
     # Initial Test Data
     let!(:songs) { FactoryBot.create_list(:song, 5)}
     let(:song_id) { songs.first.id }
+    # json is defined in request_spec_helper.rb
 
     # GET /api/v1/songs
     # Returns collection of songs
@@ -17,7 +18,6 @@ RSpec.describe 'Songs API', :type => :request do
         end
 
         it 'returns a collection of songs in JSON' do
-            json = JSON.parse(response.body)
             expect(json).not_to be_empty
             expect(json.size).to eq(5)
         end
@@ -47,7 +47,6 @@ RSpec.describe 'Songs API', :type => :request do
             end
 
             it 'creates a song and returns it in JSON' do
-                json = JSON.parse(response.body, symbolize_names: true)
                 expect(json).not_to be_empty
                 expect(json[:id]).not_to eq(nil)
                 expect(json[:name]).to eq(valid_attrtributes[:song][:name])
@@ -70,8 +69,6 @@ RSpec.describe 'Songs API', :type => :request do
             end
 
             it 'returns the validation error messages in JSON' do
-                json = JSON.parse(response.body, symbolize_names: true)
-                puts 'json'
                 expect(json).to_not be_empty
                 expect(json[:errors][:messages]).to eq({
                     :name=>["can't be blank"],
@@ -95,9 +92,10 @@ RSpec.describe 'Songs API', :type => :request do
         end
 
         it 'returns a song in JSON' do
-            json = JSON.parse(response.body)
             expect(json).not_to be_empty
-            expect(json.size).to eq(5)
+            expect(json[:id]).to eq(song_id)
+            expect(json[:name]).to eq(songs.first.name)
+            expect(json[:artist]).to eq(songs.first.artist)
         end
     end
 
