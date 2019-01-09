@@ -11,7 +11,7 @@ class Api::V1::SongsController < ApplicationController
     def create
         song = Song.new(song_params)
         if song.save
-            render :json => song, :status => 200
+            render :json => song, :status => 201
         else
             render :json => { :message => song.errors }, :status => 400
         end
