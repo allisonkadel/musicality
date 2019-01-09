@@ -26,9 +26,9 @@ RSpec.describe 'Songs API', :type => :request do
     # Creates a song and returns new song
     describe 'POST /api/v1/songs' do
 
-        before { post '/api/v1/songs', :params => valid_attrtributes }
-
         context 'when the request is valid' do
+
+            before { post '/api/v1/songs', :params => valid_attrtributes }
 
             let(:valid_attrtributes) {
                 {
@@ -56,11 +56,30 @@ RSpec.describe 'Songs API', :type => :request do
                     
         end
 
-        context "when the request is invalid"
+        context 'when the request is invalid' do
 
+            before { post '/api/v1/songs', params: {
+                song: {
+                    name: '', artist: '', chords: ''
+                }
+            }}
 
+            it 'returns a status code of 400' do
+                expect(response).to have_http_status(400)
+            end
 
-        it 'returns a status code of 200'
+            it 'returns the validation error messages in JSON' do
+                json = JSON.parse(response.body, symbolize_names: true)
+                puts 'json'
+                expect(json).to_not be_empty
+                expect(json[:errors][:messages]).to eq({
+                    :name=>["can't be blank"],
+                    :artist=>["can't be blank"],
+                    :chords=>["can't be blank"]
+                })
+            end
+            
+        end
 
     end
 

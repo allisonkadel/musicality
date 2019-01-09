@@ -13,7 +13,11 @@ class Api::V1::SongsController < ApplicationController
         if song.save
             render :json => song, :status => 201
         else
-            render :json => { :message => song.errors }, :status => 400
+            render json: {
+                errors: {
+                    messages: song.errors.messages
+                }
+            }, status: 400
         end
     end
 
