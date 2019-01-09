@@ -2,10 +2,14 @@ class Api::V1::LyricsController < ApplicationController
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     before_action :set_song, :only => [:show, :create, :destroy]
 =======
     before_action :set_song, :only => [:show, :create, :update, :destroy]
 >>>>>>> parent of 0b758fb... Revert "build destroy route tests for song lyrics"
+=======
+    before_action :set_lyric, :only => [:show, :update, :destroy]
+>>>>>>> parent of 1335dc1... build destroy route tests for song lyrics
 =======
     before_action :set_lyric, :only => [:show, :update, :destroy]
 >>>>>>> parent of 1335dc1... build destroy route tests for song lyrics
@@ -34,6 +38,7 @@ class Api::V1::LyricsController < ApplicationController
     # end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     def destroy
 <<<<<<< HEAD
         binding.pry
@@ -54,6 +59,8 @@ class Api::V1::LyricsController < ApplicationController
         end
     end
 =======
+=======
+>>>>>>> parent of 1335dc1... build destroy route tests for song lyrics
     # def destroy
     #     binding.pry
     #     if @song.destroy
@@ -65,6 +72,9 @@ class Api::V1::LyricsController < ApplicationController
     #             }, :status => 400
     #     end
     # end
+<<<<<<< HEAD
+>>>>>>> parent of 1335dc1... build destroy route tests for song lyrics
+=======
 >>>>>>> parent of 1335dc1... build destroy route tests for song lyrics
 
     private
