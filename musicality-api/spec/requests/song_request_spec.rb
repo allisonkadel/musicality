@@ -121,7 +121,7 @@ RSpec.describe 'Songs API', :type => :request do
 
     end
 
-    # PUT /api/v1/songs/:id
+    # PATCH /api/v1/songs/:id
     # Updates and Returns the Song Matching the Parameters Id
     describe 'PATCH /api/v1/song/:id' do
 
@@ -179,7 +179,7 @@ RSpec.describe 'Songs API', :type => :request do
                         :chords=>["can't be blank"]
                     })
                 end
-                
+
             end
 
         end
@@ -193,6 +193,37 @@ RSpec.describe 'Songs API', :type => :request do
             end
 
             it 'returns error messages of not found in JSON' do
+                expect(json).to_not be_empty
+                expect(json[:errors][:messages]).to eq("record can't be found")
+            end
+
+        end
+
+    end
+
+    # DELETE /api/v1/songs/:id
+    # Destroys the Song Matching the Parameters Id
+    describe 'DELETE /api/v1/songs/:id' do
+
+        context 'if song exists' do
+
+            before { delete "/api/v1/songs/#{song_id}" }
+
+            it 'returns a status code of 204' do
+                expect(response).to have_http_status(204)
+            end
+
+        end
+
+        context 'if song is not found' do
+
+            before { delete '/api/v1/songs/nonexistend_song' }
+
+            it 'returns a status code of 404' do
+                expect(response).to have_http_status(404)
+            end
+
+            it 'returns error messages of not found in json' do
                 expect(json).to_not be_empty
                 expect(json[:errors][:messages]).to eq("record can't be found")
             end

@@ -31,7 +31,6 @@ class Api::V1::SongsController < ApplicationController
     end
 
     def destroy
-        binding.pry
         if @song.destroy
             render :status => 204
         else
