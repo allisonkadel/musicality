@@ -14,7 +14,7 @@ RSpec.describe 'Songs API', :type => :request do
         before { get '/api/v1/songs' }
 
         it 'returns a status code of 200' do
-            expect(response).to have_http_status(200) # 200: found resource and return with success
+            expect(response).to have_http_status(200) #=> 200: found resource and return with success
         end
 
         it 'returns a collection of songs in JSON' do
@@ -39,10 +39,9 @@ RSpec.describe 'Songs API', :type => :request do
                         chords: "GEmCD"
                     }
                 }
-            
             }
 
-            it 'returns a status code of 201' do # 201: created a resource
+            it 'returns a status code of 201' do #=> 201: created a resource
                 expect(response).to have_http_status(201)
             end
 
@@ -90,7 +89,7 @@ RSpec.describe 'Songs API', :type => :request do
             before { get "/api/v1/songs/#{song_id}" }
 
             it 'returns a status code of 200' do
-                expect(response).to have_http_status(200) # 200: found resource and return with success
+                expect(response).to have_http_status(200) #=> 200: found resource and return with success
             end
 
             it 'returns a song in JSON' do
@@ -107,13 +106,93 @@ RSpec.describe 'Songs API', :type => :request do
             # This is currently being handled by ActiveRecord and rescued
             # to create uniform response shape
 
-            before { get "/api/v1/songs/nonexistent_record" }
+            before { get "/api/v1/songs/nonexistent_song" }
 
             it 'returns a status code of 404' do
                 expect(response).to have_http_status(404)
             end
 
             it 'returns an error message of not found in JSON' do
+                expect(json).to_not be_empty
+                expect(json[:errors][:messages]).to eq("record can't be found")
+            end
+
+        end
+
+    end
+
+    # PUT /api/v1/songs/:id
+    # Updates and Returns the Song Matching the Parameters Id
+    describe 'PATCH /api/v1/song/:id' do
+
+        describe 'if song exists' do
+
+            context 'and has valid attributes' do
+
+                let(:valid_attrtributes) {
+                    {
+                        :song => {
+                            name: "Updated Title",
+                            artist: "Updated Artist",
+                            chords: "GEmCD"
+                        }
+                    }
+                }
+
+                before { patch "/api/v1/songs/#{song_id}", params: valid_attrtributes }
+                
+                it 'updates the song' do
+                    expect(json[:name]).to eq(valid_attrtributes[:song][:name])
+                    expect(json[:artist]).to eq(valid_attrtributes[:song][:artist])
+                    expect(json[:chords]).to eq(valid_attrtributes[:song][:chords])
+                end
+
+                it 'returns a status code of 200' do #=> 200: returning a resource
+                    expect(response).to have_http_status(200)
+                end
+
+            end
+
+            context 'and has invalid attributes' do
+
+                let(:invalid_attrtributes) {
+                    {
+                        :song => {
+                            name: "",
+                            artist: "",
+                            chords: ""
+                        }
+                    }
+                }
+
+                before { patch "/api/v1/songs/#{song_id}", params: invalid_attrtributes }
+                
+                it 'returns a status code of 400' do
+                    expect(response).to have_http_status(400)
+                end
+    
+                it 'returns the validation error messages in JSON' do
+                    expect(json).to_not be_empty
+                    expect(json[:errors][:messages]).to eq({
+                        :name=>["can't be blank"],
+                        :artist=>["can't be blank"],
+                        :chords=>["can't be blank"]
+                    })
+                end
+                
+            end
+
+        end
+
+        context 'if song is not found' do
+
+            before { patch "/api/v1/songs/nonexistent_song" }
+
+            it 'returns a status code of 404' do
+                expect(response).to have_http_status(404)
+            end
+
+            it 'returns error messages of not found in JSON' do
                 expect(json).to_not be_empty
                 expect(json[:errors][:messages]).to eq("record can't be found")
             end
