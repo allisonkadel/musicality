@@ -1,0 +1,24 @@
+.Nav-bar {
+    background:white;
+    height: 60px;
+}
+
+.Nav-link {
+    color: #282c34;
+    display: inline-block;
+    list-style: none;
+    height: 60px; /* should be the same as line-height */
+    line-height: 60px; /* should be the same as height */
+    padding: 0 40px; /* "0" sets top and bottom padding to none */
+}
+
+.Nav-link:hover {
+    background:#282c34;
+    transition: background .5s;
+    color: white;
+  }
+
+a {
+color: #fff;
+text-decoration: none;
+}
