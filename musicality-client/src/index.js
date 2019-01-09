@@ -6,12 +6,17 @@ import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 import store from './store.js'
 
-// console.log(store)
+const Welcome = () => (
+    <h1>Welcome to Musicality. Look around and find your muse.</h1>
+)
 
 ReactDOM.render(
+    <>
+    <Welcome/>
     <Provider store={store}>
         <App />
-    </Provider>, 
+    </Provider>
+    </>, 
     document.getElementById('root')
 );
 

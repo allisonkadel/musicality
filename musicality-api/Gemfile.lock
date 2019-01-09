@@ -188,7 +188,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  capybara (~> 2.13)
+  capybara
   database_cleaner
   factory_bot_rails
   faker
