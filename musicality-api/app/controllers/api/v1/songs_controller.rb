@@ -12,11 +12,7 @@ class Api::V1::SongsController < ApplicationController
         if song.save
             render :json => song, :status => 201
         else
-            render json: {
-                errors: {
-                    messages: song.errors.messages
-                }
-            }, status: 400
+            error_response(song)
         end
     end
 
@@ -30,7 +26,7 @@ class Api::V1::SongsController < ApplicationController
         if @song.update(song_params)
             render :json => @song, :status => 200
         else
-            render :json => { :message => song.errors }, :status => 400
+            error_response(@song)     
         end
     end
 
@@ -54,6 +50,14 @@ class Api::V1::SongsController < ApplicationController
 
     def set_song
         @song = Song.find(params[:id])
+    end
+
+    def error_response(song)
+        render json: {
+            errors: {
+                messages: song.errors.messages
+            }
+        }, status: 400  
     end
 
 end
