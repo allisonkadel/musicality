@@ -51,12 +51,4 @@ class Api::V1::SongsController < ApplicationController
         @song = Song.find(params[:id])
     end
 
-    def error_response(song)
-        render json: {
-            errors: {
-                messages: song.errors.messages
-            }
-        }, status: 400  
-    end
-
 end

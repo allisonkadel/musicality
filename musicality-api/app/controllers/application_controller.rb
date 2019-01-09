@@ -10,4 +10,12 @@ class ApplicationController < ActionController::API
         }, status: 404
     end
 
+    def error_response(record)
+        render json: {
+            errors: {
+                messages: record.errors.messages
+            }
+        }, status: 400  
+    end
+
 end

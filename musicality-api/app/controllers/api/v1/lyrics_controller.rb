@@ -4,17 +4,16 @@ class Api::V1::LyricsController < ApplicationController
 
     def index
         song = Song.find(params[:song_id])
-        lyrics = song.lyrics
 
-        render :json => lyrics, :status => 200
+        render :json => song.lyrics, :status => 200
     end
 
     def create
-        lyric = Lyric.new(:chord => params[:chord],:text => params[:text],:song_id => params[:song_id])
+        lyric = @song.lyrics.build(lyric_params)
         if lyric.save
-            render :json => lyric, :status => 200
+            render :json => lyric, :status => 201
         else
-            render :json => { :message => lyric.errors }, :status => 400
+            error_response(lyric)
         end
     end
 
@@ -37,5 +36,11 @@ class Api::V1::LyricsController < ApplicationController
     #             }, :status => 400
     #     end
     # end
+
+    private
+
+    def set_song
+        @song = Song.find(params[:song_id])
+    end
 
 end
