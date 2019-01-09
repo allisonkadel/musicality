@@ -122,7 +122,54 @@ RSpec.describe 'Lyrics API', :type => :request do
     end
 
     # DELETE /api/v1/songs/:song_id/lyrics/:id
+    # Destroys the Lyric Matching the Parameter Id
     describe 'DELETE /api/v1/songs/:song_id/lyrics/:id' do
+
+        context 'if song exists' do
+
+            context 'and lyric exists' do
+
+                before { delete "/api/v1/songs/#{song_id}/lyrics/#{lyric_id}" }
+
+                it 'returns a status code of 204' do
+                    expect(response).to have_http_status(204)
+                end
+
+            end
+
+            context 'and lyric is not found' do
+
+                # change record to be more specific(song or lyric) -> problem 
+                # with rescuing ActiveRecord builtin errors
+
+                before { delete "/api/v1/songs/#{song_id}/lyrics/nonexistent_lyric" }
+
+                it 'returns a status code of 404' do
+                    expect(response).to have_http_status(404)
+                end
+
+                it 'returns error messages of not found in json' do
+                    expect(json).to_not be_empty
+                    expect(json[:errors][:messages]).to eq("record can't be found")
+                end
+            end
+
+        end
+
+        context 'if song is not found' do
+
+            before { delete '/api/v1/songs/nonexistend_song' }
+
+            it 'returns a status code of 404' do
+                expect(response).to have_http_status(404)
+            end
+
+            it 'returns error messages of not found in json' do
+                expect(json).to_not be_empty
+                expect(json[:errors][:messages]).to eq("record can't be found")
+            end
+
+        end
 
     end
 

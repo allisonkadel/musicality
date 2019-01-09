@@ -1,6 +1,6 @@
 class Api::V1::LyricsController < ApplicationController
 
-    before_action :set_lyric, :only => [:show, :update, :destroy]
+    before_action :set_song, :only => [:show, :create, :update, :destroy]
 
     def index
         song = Song.find(params[:song_id])
@@ -25,22 +25,23 @@ class Api::V1::LyricsController < ApplicationController
     #     end
     # end
 
-    # def destroy
-    #     binding.pry
-    #     if @song.destroy
-    #         render :status => 204
-    #     else
-    #         render :json => { 
-    #             :songId => @song.id,
-    #             :message => 'Unable to remove song' 
-    #             }, :status => 400
-    #     end
-    # end
+    def destroy
+        lyric = @song.lyrics.find(params[:id])
+        if lyric.destroy
+            render :status => 204
+        else
+            error_response(lyric)
+        end
+    end
 
     private
 
     def set_song
         @song = Song.find(params[:song_id])
+    end
+
+    def lyric_params
+        params.require(:lyric).permit(:text, :chord)
     end
 
 end
