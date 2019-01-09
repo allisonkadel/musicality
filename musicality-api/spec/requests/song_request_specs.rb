@@ -4,6 +4,7 @@ RSpec.describe 'Songs API', :type => :request do
 
     # Initial Test Data
     let!(:songs) { FactoryBot.create_list(:song, 5)}
+    let(:song_id) { songs.first.id }
 
     # GET /api/v1/songs
     # Returns collection of songs
@@ -81,6 +82,23 @@ RSpec.describe 'Songs API', :type => :request do
             
         end
 
+    end
+
+    # GET /api/v1/songs/:id
+    # Returns a Song
+    describe 'GET /api/v1/songs/:id' do
+
+        before { get "/api/v1/songs/#{song_id}" }
+
+        it 'returns a status code of 200' do
+            expect(response).to have_http_status(200) # 200: found resource and return with success
+        end
+
+        it 'returns a song in JSON' do
+            json = JSON.parse(response.body)
+            expect(json).not_to be_empty
+            expect(json.size).to eq(5)
+        end
     end
 
 end
