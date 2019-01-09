@@ -1,6 +1,6 @@
 class Api::V1::LyricsController < ApplicationController
 
-    before_action :set_song, :only => [:show, :create, :update, :destroy]
+    before_action :set_song, :only => [:show, :create, :destroy]
 
     def index
         song = Song.find(params[:song_id])
