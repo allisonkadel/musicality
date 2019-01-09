@@ -13,8 +13,7 @@ class ApplicationController < ActionController::API
     def error_response(record)
         render json: {
             errors: {
-                messages: record.errors.messages,
-                id: record.id
+                messages: record.errors.messages
             }
         }, status: 400  
     end
