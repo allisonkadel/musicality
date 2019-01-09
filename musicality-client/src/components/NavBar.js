@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
+import Home from './Home';
+import Songs from '../containers/Songs';
+import ChordChart from './ChordChart';
 
 const NavBar = () => {
     return(
