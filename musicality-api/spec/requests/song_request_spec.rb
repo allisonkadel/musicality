@@ -85,18 +85,41 @@ RSpec.describe 'Songs API', :type => :request do
     # Returns a Song
     describe 'GET /api/v1/songs/:id' do
 
-        before { get "/api/v1/songs/#{song_id}" }
+        context 'if song exists' do
 
-        it 'returns a status code of 200' do
-            expect(response).to have_http_status(200) # 200: found resource and return with success
+            before { get "/api/v1/songs/#{song_id}" }
+
+            it 'returns a status code of 200' do
+                expect(response).to have_http_status(200) # 200: found resource and return with success
+            end
+
+            it 'returns a song in JSON' do
+                expect(json).not_to be_empty
+                expect(json[:id]).to eq(song_id)
+                expect(json[:name]).to eq(songs.first.name)
+                expect(json[:artist]).to eq(songs.first.artist)
+            end
+
         end
 
-        it 'returns a song in JSON' do
-            expect(json).not_to be_empty
-            expect(json[:id]).to eq(song_id)
-            expect(json[:name]).to eq(songs.first.name)
-            expect(json[:artist]).to eq(songs.first.artist)
+        context 'if song does not exist' do
+
+            # This is currently being handled by ActiveRecord and rescued
+            # to create uniform response shape
+
+            before { get "/api/v1/songs/nonexistent_record" }
+
+            it 'returns a status code of 404' do
+                expect(response).to have_http_status(404)
+            end
+
+            it 'returns an error message of not found in JSON' do
+                expect(json).to_not be_empty
+                expect(json[:errors][:messages]).to eq("record can't be found")
+            end
+
         end
+
     end
 
 end

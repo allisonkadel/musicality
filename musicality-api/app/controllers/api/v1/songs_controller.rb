@@ -1,5 +1,4 @@
 class Api::V1::SongsController < ApplicationController
-
     before_action :set_song, :only => [:show, :update, :destroy]
 
     def index
@@ -22,7 +21,9 @@ class Api::V1::SongsController < ApplicationController
     end
 
     def show
-        render :json => @song, status: 200
+        if @song
+            render :json => @song, status: 200
+        end
     end
 
     def update
