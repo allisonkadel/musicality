@@ -5,18 +5,14 @@ import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 import store from './store.js'
-
-const Welcome = () => (
-    <h1>Welcome to Musicality. Look around and find your muse.</h1>
-)
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-    <>
-    <Welcome/>
     <Provider store={store}>
-        <App />
-    </Provider>
-    </>, 
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>, 
     document.getElementById('root')
 );
 
