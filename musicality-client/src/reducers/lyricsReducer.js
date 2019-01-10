@@ -9,9 +9,9 @@ export default (state = [], action) => {
         case 'DELETE_LYRIC':
             return state.filter(lyric => action.id !== lyric.id)
         
-        // case 'MAKE_SONGS_REQUEST':
+        // case 'MAKE_LYRICS_REQUEST':
             
-        // case 'MAKE_POST_REQUEST':
+        // case 'MAKE_LYRIC_POST_REQUEST':
             
         default:
             return state;

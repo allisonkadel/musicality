@@ -11,7 +11,7 @@ export default (state = [], action) => {
         
         // case 'MAKE_SONGS_REQUEST':
             
-        // case 'MAKE_POST_REQUEST':
+        // case 'MAKE_SONG_POST_REQUEST':
             
         default:
             return state;
