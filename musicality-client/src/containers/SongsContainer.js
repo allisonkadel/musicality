@@ -11,12 +11,14 @@ class SongsContainer extends Component {
     }
 
   render() {
+    // console.log(this.props)
     return (
       <div>
         <SongForm createSong={this.props.createSong}/>
         <Songs
           songs={this.props.songs}
           destroySong={this.props.destroySong}
+          match={this.props.match}
         />
       </div>
     );

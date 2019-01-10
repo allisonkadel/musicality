@@ -19,6 +19,7 @@ class Songs extends Component {
                         key={song.id} 
                         song={song} 
                         destroySong={this.props.destroySong}
+                        match={`${this.props.match.path}/${song.id}`}
                     />
                 )}
             </div>

@@ -26,7 +26,7 @@ const NavBar = () => {
             </div>
             <div>
                 <Route exact path='/' component={Home}/>
-                <Route path='/songs' component={SongsContainer}/>
+                <Route exact path='/songs' component={SongsContainer}/>
                 <Route path='/chords' component={ChordChart}/>
                 <Route path='/training' component={Training}/>
                 <Route path='/muse' component={Muse}/>

@@ -11,6 +11,7 @@ class LyricsContainer extends Component {
     }
 
   render() {
+    console.log("LyricsContainer props:", this.props)
     return (
       <div>
           LyricForm Component
@@ -18,10 +19,11 @@ class LyricsContainer extends Component {
           createLyric={this.props.createLyric}
           songId={this.props.song.id}/> */}
         Lyrics Component
-        <Lyrics
+        {/* <Lyrics
           lyrics={this.props.lyrics}
-          songId={this.props.song.id}
-          // destroySong={this.props.destroyLyric}
+          song={this.props.song} */}
+          {/* // songId={this.props.song.id}
+          // destroySong={this.props.destroyLyric} */}
         />
       </div>
     );
