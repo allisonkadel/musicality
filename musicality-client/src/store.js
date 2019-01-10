@@ -8,12 +8,14 @@ import thunk from 'redux-thunk';
 import songsReducer from './reducers/songsReducer';
 import songFormData from './reducers/songFormData';
 import lyricsReducer from './reducers/lyricsReducer';
+import lyricFormData from './reducers/lyricFormData';
 
 
 const rootReducer = combineReducers({
     songs: songsReducer,
     lyrics: lyricsReducer,
-    songFormData
+    songFormData,
+    lyricFormData
 });
 const middleware = [thunk]
 

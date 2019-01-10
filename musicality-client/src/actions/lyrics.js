@@ -1,4 +1,4 @@
-// import { resetForm } from './lyricForm';
+import { resetLyricForm } from './lyricForm';
 
 // ACTION CREATORS - the functions that go to the reducer
 
@@ -21,10 +21,11 @@ const postLyric = () => {
     }
 }
 
-const add_lyric = (lyric,songId) => {
+const addLyric = (lyric,songId) => {
     return {
         type: 'CREATE_LYRIC_SUCCESS',
-        {lyric,songId}
+        lyric,
+        songId
     }
 }
 
@@ -50,7 +51,7 @@ export const fetchLyrics = (songId) => {
 
 export const createLyric = (songId,lyric) => {
     return dispatch => {
-        dispatch(postRequest())
+        dispatch(postLyric())
         return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`,{
             method: 'POST',
             headers: {
@@ -61,7 +62,7 @@ export const createLyric = (songId,lyric) => {
         .then(response => response.json())
         .then(lyric => {
             dispatch(addLyric(lyric,songId))
-            dispatch(resetForm())
+            dispatch(resetLyricForm())
         })
         .catch(error => console.log(error))
     }

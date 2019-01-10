@@ -19,16 +19,16 @@ export default function manageSongs(state = {
       const songs = state.songs.filter(song => song.id !== action.id);
       return { ...state, songs}
 
-    case 'ADD_REVIEW':
+    case 'ADD_LYRIC':
 
-      const review = { text: action.review.text, songId: action.review.songId, id: cuidFn() };
+      const lyric = { text: action.lyric.text, songId: action.lyric.songId, id: cuidFn() };
       return { ...state,
-        reviews: [...state.reviews, review]
+        lyrics: [...state.lyrics, lyric]
       }
 
-    case 'DELETE_REVIEW':
-      const reviews = state.reviews.filter(review => review.id !== action.id);
-      return {...state, reviews }
+    case 'DELETE_LYRIC':
+      const lyrics = state.lyrics.filter(lyric => lyric.id !== action.id);
+      return {...state, lyrics }
 
     default:
       return state;
