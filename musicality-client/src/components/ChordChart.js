@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Home = () => {
+const ChordChart = () => {
     return(
         <div className='App-header'>
             <h1>Chord Chart images will go here.</h1>
@@ -8,4 +8,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default ChordChart;
