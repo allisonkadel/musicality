@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import LyricsContainer from '../containers/LyricsContainer';
 // import { connect } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
+import Lyrics from './lyrics/Lyrics';
 
  
     function handleToggle() {
@@ -12,6 +13,7 @@ import { Link, Route } from 'react-router-dom';
             this.style.display = "none";
         }
         }
+        
 
 
     const SongCard = (props) => {
@@ -27,13 +29,20 @@ import { Link, Route } from 'react-router-dom';
                 />
                 <button onClick={() => { props.destroySong(props.song.id) }}>X</button>
                 <button>
-                    <Link to={`/songs/${props.song.id}/lyrics`}>Add Lyrics</Link>
+                <Link to={`songs/${props.song.id}/lyrics`}>Song Test</Link>
                 </button>
                 <Route 
-                    path={`/songs/60/lyrics`}
+                    path='/songs/:songId/lyrics' 
+                    component={LyricsContainer}
+                />
+
+                {/* <Route 
+                    path={`/songs/:songId/lyrics`}
                     component={LyricsContainer}
                     song={props.song}
-                />
+                /> */}
+
+                {/* <Route path={`songs/:id`} component={LyricsContainer} /> */}
                 
                 
                 {/* <LyricsContainer song={props.song}/> */}

@@ -3,6 +3,7 @@ import SongForm from './SongForm'
 import Songs from './Songs'
 import { fetchSongs, createSong, destroySong } from '../actions/songs';
 import { connect } from 'react-redux'
+import { Route } from 'react-router-dom';
 
 class SongsContainer extends Component {
 
@@ -15,11 +16,18 @@ class SongsContainer extends Component {
     return (
       <div>
         <SongForm createSong={this.props.createSong}/>
-        <Songs
-          songs={this.props.songs}
-          destroySong={this.props.destroySong}
-          match={this.props.match}
+        <Route 
+          // path={'/songs'} 
+          render={() => 
+            <Songs 
+              songs={this.props.songs} 
+              destroySong={this.props.destroySong}
+            />
+          }
         />
+          {/* songs={this.props.songs}
+          destroySong={this.props.destroySong}
+        /> */}
       </div>
     );
   }

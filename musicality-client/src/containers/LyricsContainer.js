@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class LyricsContainer extends Component {
 
     componentDidMount() {
-        this.props.fetchLyrics();
+        this.props.fetchLyrics(this.props.match.params.songId);
     }
 
   render() {

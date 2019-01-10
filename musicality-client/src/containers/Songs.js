@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import SongCard from '../components/SongCard'
 // import { fetchSongs, destroySong } from '../actions/songs'
 import './Songs.css'
+import { Route } from 'react-router';
 
 class Songs extends Component {
 
@@ -11,16 +12,26 @@ class Songs extends Component {
     // }
 
     render() {
+        console.log("These are Songs.js props: ",this.props)
         return(
             <div className='SongsContainer'>
                 <h1 className='App-header'>Songs In Your Library</h1>
                 {this.props.songs.map(song => 
                     <SongCard 
-                        key={song.id} 
-                        song={song} 
+                        key={song.id}
+                        song={song}
                         destroySong={this.props.destroySong}
-                        match={`${this.props.match.path}/${song.id}`}
                     />
+                    // <Route 
+                    // // path={this.props.match.path} 
+                    // render={() => 
+                    //     <SongCard 
+                    //     key={song.id} 
+                    //     song={song} 
+                    //     destroySong={this.props.destroySong}
+                    // />
+                    // }
+                    // />
                 )}
             </div>
         )}
