@@ -26,7 +26,7 @@ class SongForm extends Component {
             <div className='Songs-form'>
                 <h4 className='Form-header'>Add a Song to Your Library</h4>
                 <form id='Form' onSubmit={this.handleOnSubmit}>
-                    <div class='Form-field'>
+                    <div className='Form-field'>
                         <label>Title</label>
                         <input
                             type='text'
@@ -35,7 +35,7 @@ class SongForm extends Component {
                             value={name}
                         />
                     </div>
-                    <div class='Form-field'>
+                    <div className='Form-field'>
                         <label>Artist</label>
                         <input
                             type='text'
@@ -44,7 +44,7 @@ class SongForm extends Component {
                             value={artist}
                         />
                     </div>
-                    <div class='Form-field'>
+                    <div className='Form-field'>
                         <label>Chords</label>
                         <input
                             type='text'

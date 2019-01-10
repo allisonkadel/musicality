@@ -58,6 +58,7 @@ export const createSong = song => {
             body: JSON.stringify({song: song})
         })
         .then(response => response.json())
+        // .then(song => console.log("This is the song",song))
         .then(song => {
             dispatch(addSong(song))
             dispatch(resetSongForm())
@@ -71,9 +72,10 @@ export const destroySong = id => {
         console.log(id)
         return fetch(`http://192.168.1.31:3000/api/v1/songs/${id}`, {
             method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            // headers: {
+            //     'Content-Type': 'application/json'
+            // }
+        // }).then(resp => console.log(resp))
         }).then(resp => {
             dispatch(deleteSong(id))
         })

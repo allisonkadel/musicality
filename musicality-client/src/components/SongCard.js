@@ -24,7 +24,7 @@ import LyricsContainer from '../containers/LyricsContainer';
                     alt='chord chart'
                 />
                 <button onClick={() => { props.destroySong(props.song.id) }}>X</button>
-
+                {/* <Link to={`/songs/${props.song.id}/lyrics`}>{LyricsContainer}</Link> */}
                 {/* <LyricsContainer song={props.song}/> */}
                 {/* <button onClick={() => { props.handleToggle() }}>Edit</button> */}
             </div>
