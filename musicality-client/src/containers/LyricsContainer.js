@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import LyricForm from './LyricForm'
 import Lyrics from '../components/lyrics/Lyrics';
-import { fetchLyrics } from '../actions/lyrics';
+import { createLyric, destroyLyric } from '../actions/lyrics';
 import { connect } from 'react-redux'
 
 class LyricsContainer extends Component {
 
     componentDidMount() {
-        this.props.fetchLyrics(this.props.match.params.songId);
+        this.props.fetchLyrics(this.props.song.id);
     }
+
+  //   componentDidMount() {
+  //     this.props.fetchLyrics(this.props.match.params.songId);
+  // }
 
   render() {
     console.log("LyricsContainer props:", this.props)
@@ -40,4 +44,4 @@ const mapStateToProps = state => ({
 //   deleteSong: id => dispatch({type: 'DELETE_SONG', id})
 // })
 
-export default connect(mapStateToProps, { fetchLyrics })(LyricsContainer)
+export default connect(mapStateToProps, { createLyric, destroyLyric } )(LyricsContainer)

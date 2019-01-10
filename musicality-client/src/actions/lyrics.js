@@ -68,17 +68,17 @@ export const createLyric = (songId,lyric) => {
     }
 }
 
-// export const destroy = id => {
-//     return dispatch => {
-//         console.log(id)
-//         return fetch(`http://192.168.1.31:3000/api/v1/lyrics/${id}`, {
-//             method: 'DELETE',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             }
-//         }).then(resp => {
-//             dispatch(delete(id))
-//         })
-//         .catch(error => console.log(error))
-//     }
-// }
+export const destroyLyric = id => {
+    return dispatch => {
+        console.log(id)
+        return fetch(`http://192.168.1.31:3000/api/v1/lyrics/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(resp => {
+            dispatch(delete(id))
+        })
+        .catch(error => console.log(error))
+    }
+}
