@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SongForm from './SongForm'
 import Songs from './Songs'
 import { fetchSongs, createSong, destroySong } from '../actions/songs';
+import { fetchLyrics } from '../actions/lyrics';
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom';
 
@@ -22,6 +23,7 @@ class SongsContainer extends Component {
             <Songs 
               songs={this.props.songs} 
               destroySong={this.props.destroySong}
+              fetchLyrics={this.props.fetchLyrics}
             />
           }
         />
@@ -43,4 +45,4 @@ const mapStateToProps = state => ({
 //   deleteSong: id => dispatch({type: 'DELETE_SONG', id})
 // })
 
-export default connect(mapStateToProps, { fetchSongs, createSong, destroySong })(SongsContainer)
+export default connect(mapStateToProps, { fetchSongs, createSong, destroySong, fetchLyrics })(SongsContainer)

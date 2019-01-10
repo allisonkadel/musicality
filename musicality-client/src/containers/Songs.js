@@ -21,6 +21,7 @@ class Songs extends Component {
                         key={song.id}
                         song={song}
                         destroySong={this.props.destroySong}
+                        fetchLyrics={this.props.fetchLyrics}
                     />
                     // <Route 
                     // // path={this.props.match.path} 

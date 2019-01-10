@@ -42,7 +42,7 @@ export const fetchLyrics = (songId) => {
     return dispatch => {
         dispatch(loadLyrics())
         return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`)
-        .then(resp => console.log(resp))
+        // .then(resp => console.log(resp))
         .then(response => response.json())
         .then(lyrics => dispatch(setLyrics(lyrics)))
         .catch(error => console.log(error))

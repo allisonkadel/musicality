@@ -19,11 +19,11 @@ class LyricsContainer extends Component {
           createLyric={this.props.createLyric}
           songId={this.props.song.id}/> */}
         Lyrics Component
-        {/* <Lyrics
+        <Lyrics
           lyrics={this.props.lyrics}
-          song={this.props.song} */}
-          {/* // songId={this.props.song.id}
-          // destroySong={this.props.destroyLyric} */}
+          song={this.props.song}
+          songId={this.props.match.params.songId}
+          destroyLyric={this.props.destroyLyric}
         />
       </div>
     );

@@ -31,10 +31,11 @@ import Lyrics from './lyrics/Lyrics';
                 <button>
                 <Link to={`songs/${props.song.id}/lyrics`}>Song Test</Link>
                 </button>
-                <Route 
+                <button onClick={() => { props.fetchLyrics(props.song.id) }}>Add Lyrics</button>
+                {/* <Route 
                     path='/songs/:songId/lyrics' 
                     component={LyricsContainer}
-                />
+                /> */}
 
                 {/* <Route 
                     path={`/songs/:songId/lyrics`}

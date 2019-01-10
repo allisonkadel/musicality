@@ -2,7 +2,7 @@
 
 export const updateLyricFormData = lyricFormData => {
     return {
-        type: 'UPDATED_DATA',
+        type: 'UPDATED_LYRIC_DATA',
         lyricFormData
     }
 }
