@@ -21,10 +21,10 @@ const postLyric = () => {
     }
 }
 
-const add_lyric = lyric => {
+const add_lyric = (lyric,songId) => {
     return {
         type: 'CREATE_LYRIC_SUCCESS',
-        lyric
+        {lyric,songId}
     }
 }
 
@@ -42,30 +42,30 @@ export const fetchLyrics = (songId) => {
         dispatch(loadLyrics())
         return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`)
         .then(resp => console.log(resp))
-        // .then(response => response.json())
-        // .then(lyrics => dispatch(setLyrics(lyrics)))
-        // .catch(error => console.log(error))
+        .then(response => response.json())
+        .then(lyrics => dispatch(setLyrics(lyrics)))
+        .catch(error => console.log(error))
     }
 }
 
-// export const create = (songId,lyric) => {
-//     return dispatch => {
-//         dispatch(postRequest())
-//         return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`,{
-//             method: 'POST',
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             body: JSON.stringify({lyric: lyric})
-//         })
-//         .then(response => response.json())
-//         .then(lyric => {
-//             dispatch(add(lyric))
-//             dispatch(resetForm())
-//         })
-//         .catch(error => console.log(error))
-//     }
-// }
+export const createLyric = (songId,lyric) => {
+    return dispatch => {
+        dispatch(postRequest())
+        return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`,{
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({lyric: lyric})
+        })
+        .then(response => response.json())
+        .then(lyric => {
+            dispatch(addLyric(lyric,songId))
+            dispatch(resetForm())
+        })
+        .catch(error => console.log(error))
+    }
+}
 
 // export const destroy = id => {
 //     return dispatch => {

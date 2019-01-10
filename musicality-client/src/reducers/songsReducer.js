@@ -6,6 +6,7 @@ export default (state = [], action) => {
 
         case 'CREATE_SONG_SUCCESS':
             return state.concat(action.song) // avoid array mutation
+            
         case 'DELETE_SONG':
             return state.filter(song => action.id !== song.id)
         
