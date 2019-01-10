@@ -13,9 +13,7 @@ class SongsContainer extends Component {
   render() {
     return (
       <div>
-          SongForm Component
         <SongForm createSong={this.props.createSong}/>
-        Songs Component
         <Songs
           songs={this.props.songs}
           destroySong={this.props.destroySong}

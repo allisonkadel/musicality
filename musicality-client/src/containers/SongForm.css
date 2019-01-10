@@ -1,3 +1,7 @@
+.Songs-form {
+  text-align: center;
+}
+
 .Form-header {
     background-color: #282c34;
     min-height: 50px;
@@ -7,4 +11,33 @@
     justify-content: center;
     /* font-size: calc(10px + 2vmin); */
     color: white;
+  }
+
+  .Form-field {
+    display: flex;
+    margin: 0 0 1rem 0;
+  }
+
+  #Form {
+    max-width: 800px;
+    /* padding: 2rem; */
+    box-sizing: border-box;
+    display: inline-block;
+  }
+
+  label, input {
+    width: 70%;
+    /* padding: 0.5rem; */
+    /* box-sizing: border-box; */
+    /* justify-content: space-between; */
+    font-size: 1.0rem;
+  }
+
+  label {
+    text-align: center;
+    width: 25%;
+  }
+  input {
+    border: 2px solid #aaa;
+    border-radius: 2px;
   }
