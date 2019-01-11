@@ -6,7 +6,7 @@ import { Link, Route } from 'react-router-dom';
             <div key={props.lyric.id} className='LyricCard'>
                 <div><h3 className='Lyric-text' >{props.lyric.text}</h3></div>
                 <div><h3 className='Lyric-text' >{props.lyric.chord}</h3></div>
-            <button onClick={() => { props.destroyLyric(props.lyric.id) }}>X</button>
+            <button onClick={() => { props.destroyLyric(props.songId, props.lyric.id) }}>X</button>
             </div>
         )
     }

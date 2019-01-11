@@ -68,10 +68,9 @@ export const createLyric = (songId,lyric) => {
     }
 }
 
-export const destroyLyric = id => {
+export const destroyLyric = (songId, id) => {
     return dispatch => {
-        console.log(id)
-        return fetch(`http://192.168.1.31:3000/api/v1/lyrics/${id}`, {
+        return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
