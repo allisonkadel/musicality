@@ -100,9 +100,10 @@ export const createLyric = (songId, lyric) => {
             body: JSON.stringify({lyric: lyric})
         })
         .then(response => response.json())
-        .then(lyric => {
-            dispatch(editLyric(lyric))
-        })
-        .catch(error => console.log(error))
+        .then(lyric => console.log(lyric))
+        // .then(lyric => {
+        //     dispatch(editLyric(lyric))
+        // })
+        // .catch(error => console.log(error))
     }
 }

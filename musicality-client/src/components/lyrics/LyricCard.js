@@ -7,7 +7,7 @@ import { Link, Route } from 'react-router-dom';
                     <div><h4 className='Lyric-text'>{props.lyric.text}</h4></div>
                     <div><h3 className='Lyric-text' >{props.lyric.chord}</h3></div>
                     <button onClick={() => { props.destroyLyric(props.songId, props.lyric.id) }}>X</button>
-                    <button>Edit</button>
+                    <button onClick={() => { props.updateLyric(props.songId, props.lyric.id) }}>Edit</button>
                 </div>
         )
     }
