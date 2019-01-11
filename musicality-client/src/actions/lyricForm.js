@@ -9,6 +9,6 @@ export const updateLyricFormData = lyricFormData => {
 
 export const resetLyricForm = () => {
     return {
-        type: 'RESET_SONG_FORM'
+        type: 'RESET_LYRIC_FORM'
     }
 }
