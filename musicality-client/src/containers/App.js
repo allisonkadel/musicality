@@ -9,6 +9,7 @@ import Home from '../components/Home';
 import ChordChart from '../components/ChordChart';
 import Training from '../components/Training';
 import Muse from '../components/Musee';
+import EditLyric from '../components/lyrics/EditLyric';
 
 // Import Container Component
 import SongsContainer from '../containers/SongsContainer';
@@ -28,7 +29,8 @@ class App extends Component {
                             <Route path='/chords' component={ChordChart}/>
                             <Route path='/training' component={Training}/>
                             <Route path='/muse' component={Muse}/>
-                            <Route path='/songs/:songId/lyrics' component={LyricsContainer}/>
+                            <Route exact path='/songs/:songId/lyrics' component={LyricsContainer}/>
+                            <Route path='/songs/:songId/lyrics/:id/edit' component={EditLyric}/>
                         </Switch>
                     </div>
                 </Router>
