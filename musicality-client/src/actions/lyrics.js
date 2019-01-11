@@ -91,9 +91,8 @@ export const destroyLyric = (songId, id) => {
 
 export const updateLyric = (songId, lyricId, lyric) => {
     return dispatch => {
-        debugger
         dispatch(postLyric())
-        return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics/${lyric.id}`,{
+        return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics/${lyricId}`,{
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
@@ -101,10 +100,10 @@ export const updateLyric = (songId, lyricId, lyric) => {
             body: JSON.stringify({lyric: lyric})
         })
         .then(response => response.json())
-        .then(lyric => console.log(lyric))
-        // .then(lyric => {
-        //     dispatch(editLyric(lyric))
-        // })
-        // .catch(error => console.log(error))
+        .then(lyric => {
+            dispatch(editLyric(lyric))
+            dispatch(resetLyricForm())
+        })
+        .catch(error => console.log(error))
     }
 }

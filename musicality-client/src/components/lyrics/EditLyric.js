@@ -20,6 +20,7 @@ class EditLyric extends Component {
 
     render() {
         console.log("THESE ARE EDIT LYRICS PROPS: ", this.props)
+        console.log(this.props.match.params.id)
 
         const { text, chord } = this.props.lyricFormData;
         return (
