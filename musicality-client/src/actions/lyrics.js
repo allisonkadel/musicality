@@ -48,7 +48,7 @@ export const fetchLyrics = (songId) => {
     }
 }
 
-export const createLyric = (songId,lyric) => {
+export const createLyric = (songId, lyric) => {
     return dispatch => {
         dispatch(postLyric())
         return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`,{

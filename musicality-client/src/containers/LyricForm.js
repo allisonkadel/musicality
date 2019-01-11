@@ -17,7 +17,7 @@ class LyricForm extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault();
-        this.props.createLyric(this.props.lyricFormData)
+        this.props.createLyric(this.props.songId, this.props.lyricFormData)
     } 
 
     render() {
