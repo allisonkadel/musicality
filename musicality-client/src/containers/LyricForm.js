@@ -9,51 +9,42 @@ class LyricForm extends Component {
 
     handleOnChange = event => {
         const { name, value } = event.target;
-        const currentSongFormData = Object.assign({}, this.props.songFormData, {
+        const currentLyricFormData = Object.assign({}, this.props.lyricFormData, {
             [name]: value
         })
-        this.props.updateSongFormData(currentSongFormData)
+        this.props.updateLyricFormData(currentLyricFormData)
     }
 
     handleOnSubmit = event => {
         event.preventDefault();
-        this.props.createSong(this.props.songFormData)
+        this.props.createLyric(this.props.lyricFormData)
     } 
 
     render() {
-        const { name, artist, chords } = this.props.songFormData;
+        const { text, chord } = this.props.lyricFormData;
         return (
             <div className='Songs-form'>
-                <h4 className='Form-header'>Add a Song to Your Library</h4>
+                <h4 className='Form-header'>Add Lyrics to Your Song</h4>
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
-                        <label>Title</label>
+                        <label>Text</label>
                         <input
                             type='text'
                             onChange={this.handleOnChange}
-                            name='name'
-                            value={name}
+                            name='text'
+                            value={text}
                         />
                     </div>
                     <div>
-                        <label>Artist</label>
+                        <label>Chord</label>
                         <input
                             type='text'
                             onChange={this.handleOnChange}
-                            name='artist'
-                            value={artist}
+                            name='chord'
+                            value={chord}
                         />
                     </div>
-                    <div>
-                        <label>Chords</label>
-                        <input
-                            type='text'
-                            onChange={this.handleOnChange}
-                            name='chords'
-                            value={chords}
-                        />
-                    </div>
-                    <button type='submit'>Add Song</button>
+                    <button type='submit'>Add Lyric</button>
                 </form>
             </div>
         )
@@ -62,13 +53,13 @@ class LyricForm extends Component {
 
 const mapStateToProps = state => {
     return {
-        songFormData: state.songFormData
+        lyricFormData: state.lyricFormData
     }
 }
 
 export default connect(mapStateToProps, {
-    createSong,
-    updateSongFormData
- })(SongForm);
+    createLyric,
+    updateLyricFormData
+ })(LyricForm);
 
  

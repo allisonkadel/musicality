@@ -17,10 +17,9 @@ class LyricsContainer extends Component {
     console.log("LyricsContainer props:", this.props)
     return (
       <div>
-        {/* <LyricForm
+        <LyricForm
           createLyric={this.props.createLyric}
-          // songId={this.props.song.id}/>
-          songId={this.props.match.params.songId}/> */}
+          songId={this.props.match.params.songId}/>
         <Lyrics
           lyrics={this.props.lyrics}
           songId={this.props.match.params.songId}
