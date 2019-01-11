@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Songs from './Songs';
-import SongForm from './SongForm';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import Songs from './Songs';
+// import SongForm from './SongForm';
 import NavBar from '../components/NavBar';
 import './App.css'
 // Import Presentational Components
@@ -22,12 +22,13 @@ class App extends Component {
                 <Router>
                     <div>
                         <NavBar/>
-
-                        <Route exact path='/' component={Home}/>
-                        <Route path='/songs' component={SongsContainer}/>
-                        <Route path='/chords' component={ChordChart}/>
-                        <Route path='/training' component={Training}/>
-                        <Route path='/muse' component={Muse}/>
+                        <Switch>
+                            <Route exact path='/' component={Home}/>
+                            <Route path='/songs' component={SongsContainer}/>
+                            <Route path='/chords' component={ChordChart}/>
+                            <Route path='/training' component={Training}/>
+                            <Route path='/muse' component={LyricsContainer}/>
+                        </Switch>
                     </div>
                 </Router>
             </div>

@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import SongCard from '../components/SongCard'
 // import { fetchSongs, destroySong } from '../actions/songs'
 import './Songs.css'
-import { Route } from 'react-router';
+import { Link, Route } from 'react-router-dom';
+import LyricsContainer from './LyricsContainer';
 
 class Songs extends Component {
 
@@ -17,12 +18,17 @@ class Songs extends Component {
             <div className='SongsContainer'>
                 <h1 className='App-header'>Songs In Your Library</h1>
                 {this.props.songs.map(song => 
+                    <>
                     <SongCard 
                         key={song.id}
                         song={song}
                         destroySong={this.props.destroySong}
                         fetchLyrics={this.props.fetchLyrics}
                     />
+                    {/* <Link to={`/songs/${song.id}/lyrics`}>Add Lyrics</Link>
+                    <Route path={'/songs/:songId/lyrics'} component={LyricsContainer}/> */}
+                    </>
+
                     // <Route 
                     // // path={this.props.match.path} 
                     // render={() => 

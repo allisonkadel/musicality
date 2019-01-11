@@ -29,7 +29,7 @@ const addLyric = (lyric,songId) => {
     }
 }
 
-const delete_lyric = id => {
+const deleteLyric = id => {
     return {
         type: 'DELETE_LYRIC',
         id
@@ -77,7 +77,7 @@ export const destroyLyric = id => {
                 'Content-Type': 'application/json'
             }
         }).then(resp => {
-            dispatch(delete(id))
+            dispatch(deleteLyric(id))
         })
         .catch(error => console.log(error))
     }

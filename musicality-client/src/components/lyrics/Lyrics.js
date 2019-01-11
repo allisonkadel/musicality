@@ -13,14 +13,14 @@ class Lyrics extends Component {
     render() {
         return(
             <div className='LyricsContainer'>
-                {/* <h1 className='App-header'>Song Lyrics</h1>
+                <h1 className='App-header'>Song Lyrics</h1>
                 {this.props.lyrics.map(lyric => 
                     <LyricCard 
                         key={lyric.id} 
                         lyric={lyric} 
                         destroyLyric={this.props.destroyLyric}
                     />
-                )} */}
+                )}
             </div>
         )}
 }
