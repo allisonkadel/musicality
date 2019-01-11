@@ -9,7 +9,8 @@ class LyricsContainer extends Component {
     
 
     componentDidMount() {
-        this.props.fetchLyrics(this.props.song.id);
+        // this.props.fetchLyrics(this.props.song.id);
+        this.props.fetchLyrics(62)
         alert("lyrics container mounted!!!!")
     }
 
@@ -25,7 +26,7 @@ class LyricsContainer extends Component {
         Lyrics Component
         <Lyrics
           lyrics={this.props.lyrics}
-          song={this.props.song}
+        //   song={this.props.song}
           // songId={this.props.match.params.songId}
           destroyLyric={this.props.destroyLyric}
         />
