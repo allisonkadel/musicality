@@ -15,14 +15,14 @@ class EditLyric extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault();
-        this.props.updateLyric(this.props.songId, this.props.lyricFormData)
+        this.props.updateLyric(5, this.props.lyricFormData)
     }
 
     render() {
         const { text, chord } = this.props.lyricFormData;
         return (
             <div className='Songs-form'>
-                <h4 className='Form-header'>Add Lyrics to Your Song</h4>
+                <h4 className='Form-header'>Edit Your Lyric</h4>
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
                         <label>Text</label>

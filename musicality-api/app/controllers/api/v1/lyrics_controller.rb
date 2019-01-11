@@ -17,13 +17,13 @@ class Api::V1::LyricsController < ApplicationController
         end
     end
 
-    # def update
-    #     if @song.update(song_params)
-    #         render :json => @song, :status => 200
-    #     else
-    #         render :json => { :message => song.errors }, :status => 400
-    #     end
-    # end
+    def update
+        if @lyric.update(lyric_params)
+            render :json => @lyric, :status => 200
+        else
+            render :json => { :message => @lyric.errors }, :status => 400
+        end
+    end
 
     def destroy
         lyric = @song.lyrics.find(params[:id])
@@ -38,6 +38,10 @@ class Api::V1::LyricsController < ApplicationController
 
     def set_song
         @song = Song.find(params[:song_id])
+    end
+
+    def set_lyric
+        @lyric = Lyric.find(params[:id])
     end
 
     def lyric_params

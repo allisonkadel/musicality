@@ -91,6 +91,7 @@ export const destroyLyric = (songId, id) => {
 
 export const updateLyric = (songId, lyric) => {
     return dispatch => {
+        debugger
         dispatch(postLyric())
         return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics/${lyric.id}`,{
             method: 'PUT',
