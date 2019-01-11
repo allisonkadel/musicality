@@ -1,5 +1,8 @@
 .button-form {
     float: right;
+}
+
+button {
     color: whitesmoke;
     background-color: #282c34;
 }
