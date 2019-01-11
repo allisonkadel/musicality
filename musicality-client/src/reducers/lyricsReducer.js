@@ -13,7 +13,7 @@ export default (state = [], action) => {
         case 'UPDATE_LYRIC':
         debugger
             return state.map(lyric => {
-                if (action.id === lyric.id) {
+                if (action.lyric.id === lyric.id) {
                     return action.lyric
                 }
             })

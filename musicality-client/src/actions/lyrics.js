@@ -35,11 +35,11 @@ const deleteLyric = id => {
     }
 }
 
-const editLyric = id => {
+const editLyric = lyric => {
     debugger
     return {
         type: 'UPDATE_LYRIC',
-        id
+        lyric
     }
 }
 
@@ -100,12 +100,12 @@ export const updateLyric = (songId, lyricId, lyric) => {
             },
             body: JSON.stringify({lyric: lyric})
         })
-        .then(response => console.log(response))
-        // .then(lyric => {
-        //     debugger
-        //     dispatch(editLyric(lyric))
-        //     dispatch(resetLyricForm())
-        // })
-        // .catch(error => console.log(error))
+        .then(response => response.json())
+        .then(lyric => {
+            debugger
+            dispatch(editLyric(lyric))
+            dispatch(resetLyricForm())
+        })
+        .catch(error => console.log(error))
     }
 }

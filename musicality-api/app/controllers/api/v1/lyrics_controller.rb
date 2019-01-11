@@ -22,7 +22,7 @@ class Api::V1::LyricsController < ApplicationController
         if lyric.update(lyric_params)
             render :json => lyric, :status => 200
         else
-            error_response(@lyric)
+            error_response(lyric)
         end
     end
 
