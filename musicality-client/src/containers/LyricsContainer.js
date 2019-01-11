@@ -10,7 +10,6 @@ class LyricsContainer extends Component {
 
     componentDidMount() {
         this.props.fetchLyrics(this.props.match.params.songId);
-        alert("lyrics container mounted!!!!")
     }
 
   render() {
