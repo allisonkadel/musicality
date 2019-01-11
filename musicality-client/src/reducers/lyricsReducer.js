@@ -5,17 +5,18 @@ export default (state = [], action) => {
             return action.lyrics
 
         case 'CREATE_LYRIC_SUCCESS':
-            const lyric = {text: action.lyric.text, songId: action.lyric.songId}
-            return { ...state,
-                lyrics: [...state.lyrics, lyric]
-              }
+            // const lyric = {text: action.lyric.text, songId: action.lyric.songId}
+            // return { ...state,
+            //     lyrics: [...state.lyrics, lyric]
+            //   }
+            return state.concat(action.lyric)
         
         case 'DELETE_LYRIC':
             return state.filter(lyric => action.id !== lyric.id)
         
         // case 'MAKE_LYRICS_REQUEST':
             
-        // case 'MAKE_LYRIC_POST_REQUEST':
+        // case 'MAKE_POST_REQUEST':
 
         default:
               return state;

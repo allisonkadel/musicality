@@ -21,11 +21,10 @@ const postLyric = () => {
     }
 }
 
-const addLyric = (lyric,songId) => {
+const addLyric = (lyric) => {
     return {
         type: 'CREATE_LYRIC_SUCCESS',
-        lyric,
-        songId
+        lyric
     }
 }
 
@@ -61,7 +60,7 @@ export const createLyric = (songId,lyric) => {
         })
         .then(response => response.json())
         .then(lyric => {
-            dispatch(addLyric(lyric,songId))
+            dispatch(addLyric(lyric))
             dispatch(resetLyricForm())
         })
         .catch(error => console.log(error))
