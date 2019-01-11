@@ -35,6 +35,14 @@ const deleteLyric = id => {
     }
 }
 
+const editLyric = id => {
+    return {
+        type: 'UPDATE_LYRIC',
+        id
+    }
+}
+
+
 // ASYNCHRONOUS ACTIONS - make calls to the backend
 
 export const fetchLyrics = (songId) => {
@@ -76,6 +84,24 @@ export const destroyLyric = (songId, id) => {
             }
         }).then(resp => {
             dispatch(deleteLyric(id))
+        })
+        .catch(error => console.log(error))
+    }
+}
+
+export const createLyric = (songId, lyric) => {
+    return dispatch => {
+        dispatch(postLyric())
+        return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics${id}`,{
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({lyric: lyric})
+        })
+        .then(response => response.json())
+        .then(lyric => {
+            dispatch(editLyric(lyric))
         })
         .catch(error => console.log(error))
     }
