@@ -89,7 +89,7 @@ export const destroyLyric = (songId, id) => {
     }
 }
 
-export const updateLyric = (songId, lyric) => {
+export const updateLyric = (songId, lyricId, lyric) => {
     return dispatch => {
         debugger
         dispatch(postLyric())

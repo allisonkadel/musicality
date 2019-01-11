@@ -18,19 +18,19 @@ class Api::V1::LyricsController < ApplicationController
     end
 
     def update
+        binding.pry
         if @lyric.update(lyric_params)
             render :json => @lyric, :status => 200
         else
-            render :json => { :message => @lyric.errors }, :status => 400
+            error_response(@lyric)
         end
     end
 
     def destroy
-        lyric = @song.lyrics.find(params[:id])
-        if lyric.destroy
+        if @lyric.destroy
             render :status => 204
         else
-            error_response(lyric)
+            error_response(@lyric)
         end
     end
 
@@ -41,7 +41,7 @@ class Api::V1::LyricsController < ApplicationController
     end
 
     def set_lyric
-        @lyric = Lyric.find(params[:id])
+        @lyric = @song.lyrics.find(params[:id])
     end
 
     def lyric_params

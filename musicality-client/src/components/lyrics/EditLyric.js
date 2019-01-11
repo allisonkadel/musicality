@@ -15,10 +15,12 @@ class EditLyric extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault();
-        this.props.updateLyric(5, this.props.lyricFormData)
+        this.props.updateLyric(this.props.match.params.songId, this.props.match.params.id, this.props.lyricFormData)
     }
 
     render() {
+        console.log("THESE ARE EDIT LYRICS PROPS: ", this.props)
+
         const { text, chord } = this.props.lyricFormData;
         return (
             <div className='Songs-form'>
