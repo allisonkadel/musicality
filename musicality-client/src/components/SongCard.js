@@ -5,15 +5,7 @@ import LyricsContainer from '../containers/LyricsContainer';
 import { Link, Route } from 'react-router-dom';
 // import Lyrics from './lyrics/Lyrics';
 
- 
-    // function handleToggle() {
-    //     if (this.style.display === "none") {
-    //         this.style.display = "block";
-    //     } else {
-    //         this.style.display = "none";
-    //     }
-    //     }
-        
+
 
 
     const SongCard = (props) => {
@@ -28,21 +20,35 @@ import { Link, Route } from 'react-router-dom';
                     alt='chord chart'
                 />
                 <button onClick={() => { props.destroySong(props.song.id) }}>X</button>
-                <button>
-                <Link to={`/${props.song.id}/lyrics`}>Song Test</Link>
+
+                 <button>
+                    <Link to={`/songs/${props.song.id}/lyrics`}>Add Lyrics</Link>
                 </button>
-                {/* <button onClick={() => { props.fetchLyrics(props.song.id) }}>Add Lyrics</button> */}
+                
+                {/* <Route path={'/songs/:songId/lyrics'} component={LyricsContainer}/> */}
+
+                {/* <button onClick={() => { props.fetchLyrics(props.song.id) }}></button> */}
+
+
+
+                {/* <button>
+                <Link to={`/${props.song.id}/lyrics`}>Song Test</Link>
+                </button> */}
+
+                {/* <button type="submit" formaction={`/songs/${props.song.id}/lyrics`} onClick={() => { props.fetchLyrics(props.song.id) }}>Add Lyrics</button> */}
+                
                 {/* <LyricsContainer song={props.song}/> */}
+
                 {/* <Route 
                     path='/:songId/lyrics' 
                     component={LyricsContainer}
                 /> */}
 
-                <Route 
+                {/* <Route 
                     path={`/songs/:songId/lyrics`}
                     component={LyricsContainer}
                     song={props.song}
-                />
+                /> */}
 
                 {/* <Route path={`songs/:id`} component={LyricsContainer} /> */}
                 

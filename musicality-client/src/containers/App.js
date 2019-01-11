@@ -24,10 +24,11 @@ class App extends Component {
                         <NavBar/>
                         <Switch>
                             <Route exact path='/' component={Home}/>
-                            <Route path='/songs' component={SongsContainer}/>
+                            <Route exact path='/songs' component={SongsContainer}/>
                             <Route path='/chords' component={ChordChart}/>
                             <Route path='/training' component={Training}/>
-                            <Route path='/muse' component={LyricsContainer}/>
+                            <Route path='/muse' component={Muse}/>
+                            <Route path='/songs/:songId/lyrics' component={LyricsContainer}/>
                         </Switch>
                     </div>
                 </Router>

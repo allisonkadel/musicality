@@ -17,19 +17,11 @@ class SongsContainer extends Component {
     return (
       <div>
         <SongForm createSong={this.props.createSong}/>
-        <Route 
-          // path={'/songs'} 
-          render={() => 
-            <Songs 
-              songs={this.props.songs} 
-              destroySong={this.props.destroySong}
-              fetchLyrics={this.props.fetchLyrics}
-            />
-          }
-        />
-          {/* songs={this.props.songs}
-          destroySong={this.props.destroySong}
-        /> */}
+          <Songs 
+            songs={this.props.songs} 
+            destroySong={this.props.destroySong}
+            fetchLyrics={this.props.fetchLyrics}
+          />
       </div>
     );
   }

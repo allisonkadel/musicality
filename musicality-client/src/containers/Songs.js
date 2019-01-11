@@ -25,8 +25,6 @@ class Songs extends Component {
                         destroySong={this.props.destroySong}
                         fetchLyrics={this.props.fetchLyrics}
                     />
-                    {/* <Link to={`/songs/${song.id}/lyrics`}>Add Lyrics</Link>
-                    <Route path={'/songs/:songId/lyrics'} component={LyricsContainer}/> */}
                     </>
 
                     // <Route 
