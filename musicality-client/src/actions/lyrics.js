@@ -36,12 +36,18 @@ const deleteLyric = id => {
 }
 
 const editLyric = lyric => {
-    debugger
     return {
         type: 'UPDATE_LYRIC',
         lyric
     }
 }
+
+// export const associatedSong = song => {
+//     return {
+//         type: 'ASSOCIATE_SONG',
+//         song
+//     }
+// }
 
 
 // ASYNCHRONOUS ACTIONS - make calls to the backend
