@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import LyricForm from './LyricForm'
 import Lyrics from '../components/lyrics/Lyrics';
-import { fetchLyrics, createLyric, destroyLyric, } from '../actions/lyrics';
+import { fetchLyrics, createLyric, destroyLyric } from '../actions/lyrics';
 import { connect } from 'react-redux'
 
 class LyricsContainer extends Component {
-
-    
 
     componentDidMount() {
         this.props.fetchLyrics(this.props.match.params.songId);
