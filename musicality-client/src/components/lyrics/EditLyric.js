@@ -16,7 +16,7 @@ class EditLyric extends Component {
     handleOnSubmit = event => {
         event.preventDefault();
         this.props.updateLyric(this.props.match.params.songId, this.props.match.params.id, this.props.lyricFormData)
-        .then(() => this.props.history.push(`/songs/${this.props.match.params.songId}/lyrics`))
+        // .then(() => this.props.history.push(`/songs/${this.props.match.params.songId}/lyrics`))
     }
 
     render() {

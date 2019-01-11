@@ -20,7 +20,7 @@ class Api::V1::LyricsController < ApplicationController
     def update
         lyric = Lyric.find(params[:id])
         if lyric.update(lyric_params)
-            render :json => @lyric, :status => 200
+            render :json => lyric, :status => 200
         else
             error_response(@lyric)
         end

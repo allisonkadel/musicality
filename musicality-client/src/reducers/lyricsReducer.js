@@ -11,7 +11,12 @@ export default (state = [], action) => {
             return state.filter(lyric => action.id !== lyric.id)
 
         case 'UPDATE_LYRIC':
-            
+        debugger
+            return state.map(lyric => {
+                if (action.id === lyric.id) {
+                    return action.lyric
+                }
+            })
         
         // case 'MAKE_LYRICS_REQUEST':
             
