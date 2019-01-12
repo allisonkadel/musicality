@@ -9,7 +9,7 @@ import songsReducer from './reducers/songsReducer';
 import songFormData from './reducers/songFormData';
 import lyricsReducer from './reducers/lyricsReducer';
 import lyricFormData from './reducers/lyricFormData';
-import associatedSong from './reducers/associatedSong';
+import currentRecords from './reducers/currentRecords';
 
 
 const rootReducer = combineReducers({
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
     lyrics: lyricsReducer,
     songFormData,
     lyricFormData,
-    associatedSong
+    currentRecords
 });
 const middleware = [thunk]
 

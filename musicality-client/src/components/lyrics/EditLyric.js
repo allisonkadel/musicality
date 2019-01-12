@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { updateLyric } from '../../actions/lyrics';
 import { updateLyricFormData } from '../../actions/lyricForm';
 import { connect } from 'react-redux';
+import './Lyrics.css';
 
 class EditLyric extends Component {
 
@@ -21,13 +22,13 @@ class EditLyric extends Component {
 
     render() {
         console.log("THESE ARE EDIT LYRICS PROPS: ", this.props)
-        console.log(this.props.match.params.id)
+        const lyricId = this.props.match.params.id
 
         const { text, chord } = this.props.lyricFormData;
         return (
             <div className='Songs-form'>
                 <h4 className='Form-header'>Edit Your Lyric</h4>
-                <form onSubmit={this.handleOnSubmit}>
+                <form className='LyricCard' onSubmit={this.handleOnSubmit}>
                     <div>
                         <label>Text</label>
                         <input
@@ -52,6 +53,7 @@ class EditLyric extends Component {
         )
     }
 }
+
 
 const mapStateToProps = state => {
     return {
