@@ -108,7 +108,6 @@ export const updateLyric = (songId, lyricId, lyric) => {
         })
         .then(response => response.json())
         .then(lyric => {
-            debugger
             dispatch(editLyric(lyric))
             dispatch(resetLyricForm())
         })
