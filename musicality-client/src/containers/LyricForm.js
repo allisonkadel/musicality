@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updateLyricFormData } from '../actions/lyricForm';
 import { createLyric } from '../actions/lyrics';
 import './LyricForm.css'
+import '../components/lyrics/Lyrics.css';
 
 class LyricForm extends Component {
 
