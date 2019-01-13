@@ -6,6 +6,12 @@ import './Lyrics.css';
 
 class EditLyric extends Component {
 
+    componentDidMount(){
+        const currentLyricFormData = Object.assign({}, this.props.lyricFormData.prefill)
+        debugger
+        this.props.updateLyricFormData(currentLyricFormData)
+    }
+
     handleOnChange = event => {
         const { name, value } = event.target;
         const currentLyricFormData = Object.assign({}, this.props.lyricFormData, {
@@ -21,6 +27,7 @@ class EditLyric extends Component {
     }
 
     render() {
+
         console.log("THESE ARE EDIT LYRICS PROPS: ", this.props)
         const lyricId = this.props.match.params.id
 
@@ -57,7 +64,8 @@ class EditLyric extends Component {
 
 const mapStateToProps = state => {
     return {
-        lyricFormData: state.lyricFormData
+        lyricFormData: state.lyricFormData,
+        prefill: state.lyricFormData.prefill
     }
 }
 

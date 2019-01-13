@@ -12,3 +12,10 @@ export const resetLyricForm = () => {
         type: 'RESET_LYRIC_FORM'
     }
 }
+
+export const prePopulate = data => {
+    return {
+        type: 'PRE_POPULATE',
+        payload: data
+    }
+}

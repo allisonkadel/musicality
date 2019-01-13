@@ -1,6 +1,7 @@
 const initialState = {
     text: '',
     chord: '',
+    prefill: {}
 }
 
 export default (state = initialState, action) => {
@@ -11,6 +12,8 @@ export default (state = initialState, action) => {
 
         case 'RESET_LYRIC_FORM':
             return initialState;
+        case 'PRE_POPULATE':
+            return { ...state, prefill: action.payload }
 
         default:
             return state;

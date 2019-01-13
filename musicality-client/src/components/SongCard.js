@@ -7,7 +7,6 @@ import { Link, Route } from 'react-router-dom';
 
 
 
-
     const SongCard = (props) => {
         // console.log("These are the SongCard props:", props)
         return(

@@ -16,6 +16,7 @@ class Lyrics extends Component {
                         lyric={lyric} 
                         destroyLyric={this.props.destroyLyric}
                         songId={this.props.songId}
+                        prePopulate={ this.props.prePopulate }
                     />
                 )}
             </div>
