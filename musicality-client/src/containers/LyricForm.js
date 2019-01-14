@@ -25,7 +25,7 @@ class LyricForm extends Component {
         const { text, chord } = this.props.lyricFormData;
         return (
             <div className='Songs-form'>
-                <h4 className='Form-header'>Add Lyrics to Your Song</h4>
+                <h4 className='Form-header'>Add Lyrics to "{this.props.currentSong.name}"</h4>
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
                         <label>Text</label>
@@ -54,7 +54,8 @@ class LyricForm extends Component {
 
 const mapStateToProps = state => {
     return {
-        lyricFormData: state.lyricFormData
+        lyricFormData: state.lyricFormData,
+        currentSong: state.currentData.currentSong
     }
 }
 
