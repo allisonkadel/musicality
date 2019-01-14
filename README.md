@@ -4,7 +4,7 @@ Welcome to Musicality. This project is intended to make being a musician easier.
 
 ## Installation
 
-To start using Musicality, Fork and Clone it into your local repository. To use only the API to integrate with your frontend, Fork and Clone /musicality-api. To use only the Client to integrate with your own API, Fork and Clone /musicality-client. Additional instructions are found [here](https://github.com/allisonkadel/musicality/musicality-client/README.md)
+To start using Musicality, Fork and Clone it into your local repository. To use only the API to integrate with your frontend, Fork and Clone /musicality-api. To use only the Client to integrate with your own API, Fork and Clone /musicality-client. Additional instructions are found [here](https://github.com/allisonkadel/musicality/tree/master/musicality-client)
 
 ## Usage
 
