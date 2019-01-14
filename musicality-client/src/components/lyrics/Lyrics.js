@@ -5,11 +5,11 @@ import './Lyrics.css';
 class Lyrics extends Component {
 
     render() {
-        // We need to access the song in this lyrics array
         console.log("Lyrics Props: ",this.props)
         return(
             <div className='LyricsContainer'>
-                <h1 className='App-header'>Lyrics</h1>
+                <h1 className='App-header'>Lyrics for "{this.props.currentSong.name}"
+                by "{this.props.currentSong.artist}"</h1>
                 {this.props.lyrics.map(lyric => 
                     <LyricCard 
                         key={lyric.id} 

@@ -23,6 +23,7 @@ class LyricsContainer extends Component {
           songId={this.props.match.params.songId}
           destroyLyric={this.props.destroyLyric}
           prePopulate={ this.props.prePopulate }
+          currentSong={this.props.currentSong}
         />
       </div>
     );
@@ -31,7 +32,9 @@ class LyricsContainer extends Component {
 
 const mapStateToProps = state => ({
     lyrics: state.lyrics,
-    lyricFormData: state.lyricFormData })
+    lyricFormData: state.lyricFormData,
+    currentSong: state.currentData.currentSong
+})
 
 // const mapDispatchToProps = dispatch => ({
 

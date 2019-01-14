@@ -23,18 +23,8 @@ class Songs extends Component {
                         song={song}
                         destroySong={this.props.destroySong}
                         fetchLyrics={this.props.fetchLyrics}
+                        fillSong={this.props.fillSong}
                     />
-
-                    // <Route 
-                    // // path={this.props.match.path} 
-                    // render={() => 
-                    //     <SongCard 
-                    //     key={song.id} 
-                    //     song={song} 
-                    //     destroySong={this.props.destroySong}
-                    // />
-                    // }
-                    // />
                 )}
             </div>
         )}

@@ -42,12 +42,12 @@ const editLyric = lyric => {
     }
 }
 
-// export const associatedSong = song => {
-//     return {
-//         type: 'ASSOCIATE_SONG',
-//         song
-//     }
-// }
+export const fillSong = data => {
+    return {
+        type: 'FILL_SONG',
+        payload: data
+    }
+}
 
 
 // ASYNCHRONOUS ACTIONS - make calls to the backend

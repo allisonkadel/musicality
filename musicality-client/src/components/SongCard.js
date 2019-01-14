@@ -8,7 +8,7 @@ import { Link, Route } from 'react-router-dom';
 
 
     const SongCard = (props) => {
-        // console.log("These are the SongCard props:", props)
+        console.log("These are the SongCard props:", props)
         return(
             <div key={props.song.id} className='SongCard'>
                 <h3>{props.song.name}</h3>
@@ -20,7 +20,7 @@ import { Link, Route } from 'react-router-dom';
                 <button onClick={() => { props.destroySong(props.song.id) }}>X</button>
 
                  <button>
-                    <Link to={`/songs/${props.song.id}/lyrics`}>Add Lyrics</Link>
+                    <Link to={`/songs/${props.song.id}/lyrics`} onClick={() => { props.fillSong({ name: props.song.name, artist: props.song.artist }) }}>Add Lyrics</Link>
                 </button>
             </div>
         )
