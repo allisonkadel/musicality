@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import Songs from './Songs';
-// import SongForm from './SongForm';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/NavBar/NavBar';
 import './App.css'
+
 // Import Presentational Components
 import Home from '../components/Home';
 import ChordChart from '../components/ChordChart';
 import Training from '../components/Training';
-import Muse from '../components/Musee';
-import EditLyric from '../components/lyrics/EditLyric';
+import Muse from '../components/Muse';
+import EditLyric from '../hybrids/EditLyric';
 
 // Import Container Component
 import SongsContainer from '../containers/SongsContainer';

@@ -1,11 +1,5 @@
 import React from 'react';
-// import ChordsCard from './chords/ChordsCard';
-import LyricsContainer from '../containers/LyricsContainer';
-// import { connect } from 'react-redux';
-import { Link, Route } from 'react-router-dom';
-// import Lyrics from './lyrics/Lyrics';
-
-
+import { Link } from 'react-router-dom';
 
     const SongCard = (props) => {
         console.log("These are the SongCard props:", props)

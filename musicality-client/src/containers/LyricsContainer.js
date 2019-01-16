@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LyricForm from './LyricForm'
+import LyricForm from '../hybrids/LyricForm'
 import Lyrics from '../components/lyrics/Lyrics';
 import { fetchLyrics, createLyric, destroyLyric } from '../actions/lyrics';
 import { connect } from 'react-redux'

@@ -1,16 +1,8 @@
-import React, { Component } from 'react'
-// import { connect } from 'react-redux'
-import SongCard from '../components/SongCard'
-// import { fetchSongs, destroySong } from '../actions/songs'
-import './Songs.css'
-import { Link, Route } from 'react-router-dom';
-import LyricsContainer from './LyricsContainer';
+import React, { Component } from 'react';
+import SongCard from './SongCard';
+import './Songs.css';
 
 class Songs extends Component {
-
-    // componentDidMount() {
-    //     this.props.fetchSongs();
-    // }
 
     render() {
         console.log("These are Songs.js props: ",this.props)
@@ -30,12 +22,5 @@ class Songs extends Component {
         )}
 }
 
-// const mapStateToProps = (state) => {
-//     return ({
-//         songs: state.songs
-//     })
-// }
-
-// export default connect(mapStateToProps, { fetchSongs, destroySong })(Songs);
 export default Songs;
 

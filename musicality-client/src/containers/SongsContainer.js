@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import SongForm from './SongForm'
-import Songs from './Songs'
+import SongForm from '../hybrids/SongForm';
+import Songs from '../components/songs/Songs';
 import { fetchSongs, createSong, destroySong } from '../actions/songs';
 import { fillSong } from '../actions/lyrics';
-import { fetchLyrics } from '../actions/lyrics';
-import { connect } from 'react-redux'
-import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class SongsContainer extends Component {
 
@@ -33,11 +31,5 @@ class SongsContainer extends Component {
 const mapStateToProps = state => ({ 
     songs: state.songs,
     songFormData: state.songFormData })
-
-// const mapDispatchToProps = dispatch => ({
-
-//   addSong: text => dispatch({type: 'ADD_SONG', text}),
-//   deleteSong: id => dispatch({type: 'DELETE_SONG', id})
-// })
 
 export default connect(mapStateToProps, { fetchSongs, createSong, destroySong, fillSong })(SongsContainer)

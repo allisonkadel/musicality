@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { updateLyric } from '../../actions/lyrics';
-import { updateLyricFormData } from '../../actions/lyricForm';
+import { updateLyric } from '../actions/lyrics';
+import { updateLyricFormData } from '../actions/lyricForm';
 import { connect } from 'react-redux';
-import './Lyrics.css';
+import '../components/lyrics/Lyrics.css';
 
 class EditLyric extends Component {
 
     componentDidMount(){
         const currentLyricFormData = Object.assign({}, this.props.lyricFormData.prefill)
-        debugger
         this.props.updateLyricFormData(currentLyricFormData)
     }
 
@@ -29,7 +28,6 @@ class EditLyric extends Component {
     render() {
 
         console.log("THESE ARE EDIT LYRICS PROPS: ", this.props)
-        const lyricId = this.props.match.params.id
 
         const { text, chord } = this.props.lyricFormData;
         return (
