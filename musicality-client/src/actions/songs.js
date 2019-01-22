@@ -40,7 +40,7 @@ const deleteSong = id => {
 export const fetchSongs = () => {
     return dispatch => {
         dispatch(loadSongs())
-        return fetch('http://192.168.1.31:3000/api/v1/songs')
+        return fetch(`${API_URL}/songs`)
         .then(response => response.json())
         .then(songs => dispatch(setSongs(songs)))
         .catch(error => console.log(error))
@@ -50,7 +50,7 @@ export const fetchSongs = () => {
 export const createSong = song => {
     return dispatch => {
         dispatch(postRequest())
-        return fetch('http://192.168.1.31:3000/api/v1/songs', {
+        return fetch(`${API_URL}/songs`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -70,7 +70,7 @@ export const createSong = song => {
 export const destroySong = id => {
     return dispatch => {
         console.log(id)
-        return fetch(`http://192.168.1.31:3000/api/v1/songs/${id}`, {
+        return fetch(`${API_URL}/songs/${id}`, {
             method: 'DELETE',
             // headers: {
             //     'Content-Type': 'application/json'
