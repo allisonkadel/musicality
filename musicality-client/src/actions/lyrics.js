@@ -55,7 +55,7 @@ export const fillSong = data => {
 export const fetchLyrics = (songId) => {
     return dispatch => {
         dispatch(loadLyrics())
-        return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`)
+        return fetch(`${API_URL}/songs/${songId}/lyrics`)
         // .then(resp => console.log(resp))
         .then(response => response.json())
         .then(lyrics => dispatch(setLyrics(lyrics)))
@@ -66,7 +66,7 @@ export const fetchLyrics = (songId) => {
 export const createLyric = (songId, lyric) => {
     return dispatch => {
         dispatch(postLyric())
-        return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics`,{
+        return fetch(`${API_URL}/songs/${songId}/lyrics`,{
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -84,7 +84,7 @@ export const createLyric = (songId, lyric) => {
 
 export const destroyLyric = (songId, id) => {
     return dispatch => {
-        return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics/${id}`, {
+        return fetch(`${API_URL}/songs/${songId}/lyrics/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -99,7 +99,7 @@ export const destroyLyric = (songId, id) => {
 export const updateLyric = (songId, lyricId, lyric) => {
     return dispatch => {
         dispatch(postLyric())
-        return fetch(`http://192.168.1.31:3000/api/v1/songs/${songId}/lyrics/${lyricId}`,{
+        return fetch(`${API_URL}/songs/${songId}/lyrics/${lyricId}`,{
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
